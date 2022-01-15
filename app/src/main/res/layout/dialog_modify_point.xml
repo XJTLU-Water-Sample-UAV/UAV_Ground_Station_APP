@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:stretchColumns="1">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="经度" />
+
+        <EditText
+            android:id="@+id/m1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="纬度" />
+
+        <EditText
+            android:id="@+id/m2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="航点高度" />
+
+        <EditText
+            android:id="@+id/m3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="（米 - 相对高度）"
+            android:inputType="number" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="悬停时间" />
+
+        <EditText
+            android:id="@+id/m4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="（秒）"
+            android:inputType="number" />
+    </TableRow>
+</TableLayout>

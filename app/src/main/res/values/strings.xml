@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">UAV_Project</string>
+    <string name="unconnectViewText">请启动无人机</string>
+    <string name="usbViewText">请连接数传设备</string>
+
+    <string name="connectButtonText">手动搜寻无人机</string>
+    <string name="selectButtonText">开始选点</string>
+    <string name="reselectButtonText">删除并重新选点</string>
+
+    <string name="unlockButtonText">解锁无人机</string>
+    <string name="takeoffButtonText">起飞</string>
+
+    <string name="showButtonText">展开航点</string>
+    <string name="sendButtonText">发送航点</string>
+    <string name="cancelButtonText">取消选择</string>
+    <string name="usbButtonText">手动查找数传</string>
+    <string name="showInfoButtonText">降落</string>
+
+    <string name="pointSettingBoxTitle">航点设置</string>
+</resources>

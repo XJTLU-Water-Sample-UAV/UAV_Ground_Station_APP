@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/usb_unconnect"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:outlineProvider="none">
+
+    <TextView
+        android:id="@+id/usbText"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_textview"
+        android:text="@string/usbViewText"
+        android:textAlignment="center"
+        android:textColor="#555555"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/usbButton"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_button_select"
+        android:text="@string/usbButtonText" />
+</LinearLayout>

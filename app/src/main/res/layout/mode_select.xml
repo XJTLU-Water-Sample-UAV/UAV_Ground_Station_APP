@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/select"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/showButton"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:background="@drawable/border_button_select"
+        android:text="@string/showButtonText" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:background="@drawable/border_button_select"
+        android:text="@string/sendButtonText" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="5dp"
+        android:layout_weight="0"
+        android:background="@drawable/border_button_warning"
+        android:text="@string/cancelButtonText" />
+
+    <ListView
+        android:id="@+id/pointList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

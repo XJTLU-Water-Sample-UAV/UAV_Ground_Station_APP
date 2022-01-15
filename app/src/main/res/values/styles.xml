@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="popwindow_delete_btn_anim_style">
+        <item name="android:activityOpenEnterAnimation">@anim/delete_btn_show</item>
+        <item name="android:activityCloseExitAnimation">@anim/delete_btn_hide</item>
+    </style>
+</resources>

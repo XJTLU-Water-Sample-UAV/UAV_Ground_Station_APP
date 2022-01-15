@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.uav_app.user_interface.map_activity.child_view.point_list.SwipeView
+        android:id="@+id/aPoint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/pointText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_textview"
+            android:textAlignment="center"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/item_modify_btn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/border_button_select"
+                android:text="编辑"
+                android:textColor="#ffffff" />
+
+            <Button
+                android:id="@+id/item_del_btn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/border_button_warning"
+                android:text="删除"
+                android:textColor="#ffffff" />
+        </TableRow>
+
+    </com.uav_app.user_interface.map_activity.child_view.point_list.SwipeView>
+</FrameLayout>
+

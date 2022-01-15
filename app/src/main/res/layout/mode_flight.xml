@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/flight"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/showInfoButton"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_button_select"
+        android:text="@string/showInfoButtonText" />
+
+    <TextView
+        android:id="@+id/stateText"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_textview"
+        android:text="无人机正在起飞"
+        android:textAlignment="center"
+        android:textColor="#555555"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/paramText"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_textview"
+        android:text="高度：位置："
+        android:textAlignment="center"
+        android:textColor="#555555"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/pointInfoList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
