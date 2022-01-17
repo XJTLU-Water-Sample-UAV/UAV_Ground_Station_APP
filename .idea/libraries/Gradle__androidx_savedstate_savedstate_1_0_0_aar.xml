@@ -1,0 +1,38 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.savedstate:savedstate:1.0.0@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/335a1a6eb49eac2eab041286c81584a5/jetified-savedstate-1.0.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/bf72a15a3ccfe7bc47129422d9cddb0c/jetified-savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/bf72a15a3ccfe7bc47129422d9cddb0c/jetified-savedstate-1.0.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/bf72a15a3ccfe7bc47129422d9cddb0c/jetified-savedstate-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bf72a15a3ccfe7bc47129422d9cddb0c/jetified-savedstate-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ac846bd1991b3727d0d9b0a2719ca5c8/jetified-savedstate-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ac846bd1991b3727d0d9b0a2719ca5c8/jetified-savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ac846bd1991b3727d0d9b0a2719ca5c8/jetified-savedstate-1.0.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/ac846bd1991b3727d0d9b0a2719ca5c8/jetified-savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/ac846bd1991b3727d0d9b0a2719ca5c8/jetified-savedstate-1.0.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/ac846bd1991b3727d0d9b0a2719ca5c8/jetified-savedstate-1.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/ac846bd1991b3727d0d9b0a2719ca5c8/jetified-savedstate-1.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/512febfd0468b29d551bd267612a464f/jetified-savedstate-1.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/597822b5f1d6b2ae8477c0a08baab41d/jetified-savedstate-1.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/085a255b8963e0d0d1c90305fce62ccc/transformed/jetified-savedstate-1.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/03f36fc1074a6ef42f95358d71c4d343/transformed/jetified-savedstate-1.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/075b9fbe28e910793d366c07831a64cc/transformed/jetified-savedstate-1.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/6ecc67bfe33d1ca53064e8200c303002/transformed/jetified-savedstate-1.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/938a8cf9faba1c6559366354cdedc68c/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/938a8cf9faba1c6559366354cdedc68c/transformed/jetified-savedstate-1.0.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/938a8cf9faba1c6559366354cdedc68c/transformed/jetified-savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/f6050513bd7bba2787ed27a096855a20/transformed/jetified-savedstate-1.0.0/res" />
+      <root url="jar://D:/Android/Gradle/caches/transforms-3/5076580150ec57cab794d297ce382309/transformed/jetified-savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/5076580150ec57cab794d297ce382309/transformed/jetified-savedstate-1.0.0/res" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/5076580150ec57cab794d297ce382309/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.savedstate/savedstate/1.0.0/e6daf87ed227a6f80bb8accb466755a5ee01a652/savedstate-1.0.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.savedstate/savedstate/1.0.0/e6daf87ed227a6f80bb8accb466755a5ee01a652/savedstate-1.0.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.savedstate/savedstate/1.0.0/e6daf87ed227a6f80bb8accb466755a5ee01a652/savedstate-1.0.0-sources.jar!/" />
+      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.savedstate/savedstate/1.0.0/e6daf87ed227a6f80bb8accb466755a5ee01a652/savedstate-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

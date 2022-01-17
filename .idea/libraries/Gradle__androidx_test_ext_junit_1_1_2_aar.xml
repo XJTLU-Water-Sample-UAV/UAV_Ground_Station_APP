@@ -1,0 +1,43 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.test.ext:junit:1.1.2@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/c293fc76dd2c99b56ffe4138dedeefff/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/c0aa6484a8c126d522b616baeb73da26/jetified-junit-1.1.2/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/c0aa6484a8c126d522b616baeb73da26/jetified-junit-1.1.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/c0aa6484a8c126d522b616baeb73da26/jetified-junit-1.1.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0aa6484a8c126d522b616baeb73da26/jetified-junit-1.1.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/69df24f507dd720395403495b7b06b0d/jetified-junit-1.1.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/69df24f507dd720395403495b7b06b0d/jetified-junit-1.1.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/69df24f507dd720395403495b7b06b0d/jetified-junit-1.1.2/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/69df24f507dd720395403495b7b06b0d/jetified-junit-1.1.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/69df24f507dd720395403495b7b06b0d/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/69df24f507dd720395403495b7b06b0d/jetified-junit-1.1.2/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/69df24f507dd720395403495b7b06b0d/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/3661dd0fe57f3e247f719acb0519269a/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/a5d2e075506d8839562924f8f9ceeb33/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/d13b27a9d28bacfc757bf332bc72a121/transformed/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/51cdeef6505d89e53eae72634a7d10ed/transformed/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/8cbf9e4b849672ad9f16f91005463f93/transformed/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/ce7966f23dc1921a18f092cd46920393/transformed/jetified-junit-1.1.2/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/bb36021f6fcbbc240f5926ad3fbb3ff4/transformed/jetified-junit-1.1.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/bb36021f6fcbbc240f5926ad3fbb3ff4/transformed/jetified-junit-1.1.2/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/bb36021f6fcbbc240f5926ad3fbb3ff4/transformed/jetified-junit-1.1.2/AndroidManifest.xml" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/554397aaf4254476476eb66afdb51a0e/transformed/jetified-junit-1.1.2/res" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/ef8b4bc3a2b7b8e4edc445035128c1a8/transformed/jetified-junit-1.1.2/AndroidManifest.xml" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/ef8b4bc3a2b7b8e4edc445035128c1a8/transformed/jetified-junit-1.1.2/res" />
+      <root url="jar://D:/Android/Gradle/caches/transforms-3/ef8b4bc3a2b7b8e4edc445035128c1a8/transformed/jetified-junit-1.1.2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.test.ext/junit/1.1.2/c69cad63303f01767122a49e379c6121d6721a0b/junit-1.1.2-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test.ext/junit/1.1.2/c69cad63303f01767122a49e379c6121d6721a0b/junit-1.1.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.test.ext/junit/1.1.2/c69cad63303f01767122a49e379c6121d6721a0b/junit-1.1.2-javadoc.jar!/" />
+      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.test.ext/junit/1.1.2/c69cad63303f01767122a49e379c6121d6721a0b/junit-1.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.test.ext/junit/1.1.2/d8ceef67c64321bbf484dc5997a1d2efa319bed7/junit-1.1.2-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test.ext/junit/1.1.2/d8ceef67c64321bbf484dc5997a1d2efa319bed7/junit-1.1.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.test.ext/junit/1.1.2/d8ceef67c64321bbf484dc5997a1d2efa319bed7/junit-1.1.2-sources.jar!/" />
+      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.test.ext/junit/1.1.2/d8ceef67c64321bbf484dc5997a1d2efa319bed7/junit-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

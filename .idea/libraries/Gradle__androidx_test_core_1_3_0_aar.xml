@@ -1,0 +1,43 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.test:core:1.3.0@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/a8663a8cd2e134851740fda69f0f0bde/jetified-core-1.3.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/07d88631c6fe47f1703fa9438f7bb8c0/jetified-core-1.3.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/07d88631c6fe47f1703fa9438f7bb8c0/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/07d88631c6fe47f1703fa9438f7bb8c0/jetified-core-1.3.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/07d88631c6fe47f1703fa9438f7bb8c0/jetified-core-1.3.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6745c4695cd7ce1321441b6b160722c3/jetified-core-1.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6745c4695cd7ce1321441b6b160722c3/jetified-core-1.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6745c4695cd7ce1321441b6b160722c3/jetified-core-1.3.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/6745c4695cd7ce1321441b6b160722c3/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/6745c4695cd7ce1321441b6b160722c3/jetified-core-1.3.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/6745c4695cd7ce1321441b6b160722c3/jetified-core-1.3.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/6745c4695cd7ce1321441b6b160722c3/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/1f238616a5c265911057b36793e2975f/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/52f749fa0c23c1618dacc020f1f568f0/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/602e34031b40dc43e85206d5de75d3b7/transformed/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/06456d698fe611d03cddc144e792bd66/transformed/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/1eabe0fe292a73808b78e032a430f80d/transformed/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/3cb63418aff7c4f0735174b400d6ebd9/transformed/jetified-core-1.3.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/11ec641d823139fdc9842990536180be/transformed/jetified-core-1.3.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/11ec641d823139fdc9842990536180be/transformed/jetified-core-1.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/11ec641d823139fdc9842990536180be/transformed/jetified-core-1.3.0/AndroidManifest.xml" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/9578654e4154553c705ed415cf220b24/transformed/jetified-core-1.3.0/res" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/b119634f7505121d93f5433a46354ea6/transformed/jetified-core-1.3.0/res" />
+      <root url="jar://D:/Android/Gradle/caches/transforms-3/b119634f7505121d93f5433a46354ea6/transformed/jetified-core-1.3.0/jars/classes.jar!/" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/b119634f7505121d93f5433a46354ea6/transformed/jetified-core-1.3.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.test/core/1.3.0/3d046283a0729cb2d5dacdd9b3f8b62203052da5/core-1.3.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/core/1.3.0/3d046283a0729cb2d5dacdd9b3f8b62203052da5/core-1.3.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.test/core/1.3.0/3d046283a0729cb2d5dacdd9b3f8b62203052da5/core-1.3.0-javadoc.jar!/" />
+      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.test/core/1.3.0/3d046283a0729cb2d5dacdd9b3f8b62203052da5/core-1.3.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.test/core/1.3.0/cab982e254e02674aa7a46e3086986cddd50ca06/core-1.3.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/core/1.3.0/cab982e254e02674aa7a46e3086986cddd50ca06/core-1.3.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.test/core/1.3.0/cab982e254e02674aa7a46e3086986cddd50ca06/core-1.3.0-sources.jar!/" />
+      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.test/core/1.3.0/cab982e254e02674aa7a46e3086986cddd50ca06/core-1.3.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

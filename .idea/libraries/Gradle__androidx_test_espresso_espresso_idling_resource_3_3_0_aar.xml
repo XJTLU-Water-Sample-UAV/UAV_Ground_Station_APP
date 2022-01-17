@@ -1,0 +1,43 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.test.espresso:espresso-idling-resource:3.3.0@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/8d51b6d58b724de47e7024302c5cbb43/espresso-idling-resource-3.3.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/297284a4f78d5bfb9127b9a3b2209151/espresso-idling-resource-3.3.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/297284a4f78d5bfb9127b9a3b2209151/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-2/files-2.1/297284a4f78d5bfb9127b9a3b2209151/espresso-idling-resource-3.3.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/297284a4f78d5bfb9127b9a3b2209151/espresso-idling-resource-3.3.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52aa1d91c6054f06c13c4a19480ef35e/espresso-idling-resource-3.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52aa1d91c6054f06c13c4a19480ef35e/espresso-idling-resource-3.3.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52aa1d91c6054f06c13c4a19480ef35e/espresso-idling-resource-3.3.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/52aa1d91c6054f06c13c4a19480ef35e/espresso-idling-resource-3.3.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/52aa1d91c6054f06c13c4a19480ef35e/espresso-idling-resource-3.3.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradel/caches/transforms-2/files-2.1/52aa1d91c6054f06c13c4a19480ef35e/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/52aa1d91c6054f06c13c4a19480ef35e/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/989dbf38b0a3472e58bd33fb6e59c22c/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/caches/transforms-2/files-2.1/294cb493588efd30d0a41ffbde482aa5/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/2f35e7f2190bfad84e4a68e0d5d2a1d8/transformed/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/9b5e882a63fb51511e1d044a8727f561/transformed/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/476e3ec5767928611f2026e6ec02274a/transformed/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/7bed0c4a79e14064856ccb2a4e21551c/transformed/espresso-idling-resource-3.3.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/28160ed46337b0a94abc4b24b48e2efb/transformed/espresso-idling-resource-3.3.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/28160ed46337b0a94abc4b24b48e2efb/transformed/espresso-idling-resource-3.3.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/28160ed46337b0a94abc4b24b48e2efb/transformed/espresso-idling-resource-3.3.0/AndroidManifest.xml" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/57d99efbf2d12388c17d840e55120443/transformed/espresso-idling-resource-3.3.0/res" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/5e2c3a32ba11d43a9e7374483e9317b6/transformed/espresso-idling-resource-3.3.0/AndroidManifest.xml" />
+      <root url="jar://D:/Android/Gradle/caches/transforms-3/5e2c3a32ba11d43a9e7374483e9317b6/transformed/espresso-idling-resource-3.3.0/jars/classes.jar!/" />
+      <root url="file://D:/Android/Gradle/caches/transforms-3/5e2c3a32ba11d43a9e7374483e9317b6/transformed/espresso-idling-resource-3.3.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.3.0/ac774bb29e6171578dc7508bf390a4a3ccbedfea/espresso-idling-resource-3.3.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.3.0/ac774bb29e6171578dc7508bf390a4a3ccbedfea/espresso-idling-resource-3.3.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.3.0/ac774bb29e6171578dc7508bf390a4a3ccbedfea/espresso-idling-resource-3.3.0-javadoc.jar!/" />
+      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.3.0/ac774bb29e6171578dc7508bf390a4a3ccbedfea/espresso-idling-resource-3.3.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.3.0/ee0f3ffdd7782d68dbe1eafa9337872817cb299e/espresso-idling-resource-3.3.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.3.0/ee0f3ffdd7782d68dbe1eafa9337872817cb299e/espresso-idling-resource-3.3.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.3.0/ee0f3ffdd7782d68dbe1eafa9337872817cb299e/espresso-idling-resource-3.3.0-sources.jar!/" />
+      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.test.espresso/espresso-idling-resource/3.3.0/ee0f3ffdd7782d68dbe1eafa9337872817cb299e/espresso-idling-resource-3.3.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

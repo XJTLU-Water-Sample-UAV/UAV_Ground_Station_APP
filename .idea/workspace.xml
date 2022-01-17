@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a99d7a6d-03e2-4e5b-b98d-e3486feb5af0" name="Default Changelist" comment="1.17" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="E:\Code\School\UAV\UAV_Project\map_key.jks" />
+    <option name="KEY_ALIAS" value="map_key" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1jh03Oa3L61zuvt4yl4YwWlUQxf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ApkExportedModule" value="UAV_Project.app" />
+    <property name="ExportApk.ApkPath" value="E:\Code\School\UAV\UAV_Project" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV2" value="true" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="COLOR" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android-custom-viewD:/Android/Gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.2.0/13e8ff89631c2e101eb6bddd12c2fb4bbd74b15d/appcompat-1.2.0-sources.jar!/androidx/appcompat/widget/AppCompatButton.java_SELECTED" value="AppCompatButton" />
+    <property name="android-custom-viewD:/Android/Sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
+    <property name="android-custom-viewD:/Android/Sdk/sources/android-30/android/view/View.java_View_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewD:/Android/Sdk/sources/android-30/android/view/ViewGroup.java_SELECTED" value="ViewGroup" />
+    <property name="android-custom-viewD:/Android/Sdk/sources/android-30/android/widget/LinearLayout.java_SELECTED" value="LinearLayout" />
+    <property name="android-custom-viewD:/Android/Sdk/sources/android-30/android/widget/ListView.java_SELECTED" value="ListView" />
+    <property name="android-custom-viewE:/Android/Sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
+    <property name="android-custom-viewE:/Android/Sdk/sources/android-30/android/view/View.java_View_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewE:/Android/Sdk/sources/android-30/android/view/ViewGroup.java_SELECTED" value="ViewGroup" />
+    <property name="android-custom-viewE:/Android/Sdk/sources/android-30/android/widget/Button.java_SELECTED" value="Button" />
+    <property name="android-custom-viewE:/Android/Sdk/sources/android-30/android/widget/LinearLayout.java_SELECTED" value="LinearLayout" />
+    <property name="android-custom-viewE:/Android/Sdk/sources/android-30/android/widget/TextView.java_SELECTED" value="TextView" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/MyButton.java_SELECTED" value="MyButton" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/PointListView.java_SELECTED" value="PointListView" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/child_point_list/SwipeView.java_SELECTED" value="SwipeView" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/point_list/PointListView.java_SELECTED" value="PointListView" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/point_list/SwipeMenu.java_SELECTED" value="SwipeMenu" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/point_list/SwipeMenu.java_SwipeMenu_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/point_list/SwipeMenuLayout.java_SELECTED" value="SwipeMenuView" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/point_list/SwipeMenuLayout.java_SwipeMenuView_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/point_list/SwipeMenuView.java_SELECTED" value="SwipeMenuView" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/point_list/SwipeView.java_SELECTED" value="SwipeView" />
+    <property name="android-custom-viewE:/Code/School/UAV/UAV_Project/app/src/main/java/com/uav_app/user_interface/map_activity/child_view/point_list/demo.java_SELECTED" value="SwipeMenu" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../../../../Android/Sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="show.do.not.copy.http.proxy.settings.to.gradle" value="true" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Properties" />
+    <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Code\School\UAV\UAV_Project_git\app\src\main" />
+      <recent name="E:\Code\School\UAV\UAV_Project_git\app\src\main\java" />
+      <recent name="E:\Code\School\UAV\UAV_Project\app\src\main\res\layout" />
+      <recent name="E:\Code\School\UAV\UAV_Project\app\src\main\res\drawable-v24" />
+      <recent name="F:\Code\School\UAV\UAV_Project\app\src\main\res\layout" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Code\School\UAV\UAV_Project\app\src\main\res\anmi" />
+      <recent name="F:\Code\UAV_Project\app\src\main\jniLibs" />
+      <recent name="F:\Code\UAV_Project\app\libs" />
+      <recent name="F:\Code\UAV_Project\app\src\main\java\driver" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.uav_app.BackEnd" />
+      <recent name="com.uav_app" />
+      <recent name="com" />
+      <recent name="com.application.uav_manager" />
+      <recent name="com.application" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="UAV_Project.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\YICHEN\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a99d7a6d-03e2-4e5b-b98d-e3486feb5af0" name="Default Changelist" comment="" />
+      <created>1604240815987</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604240815987</updated>
+      <workItem from="1606379971215" duration="102000" />
+    </task>
+    <task id="LOCAL-00001" summary="1.17">
+      <created>1642406977449</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642406977449</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1.17">
+      <created>1642414358816</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642414358816</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1.17">
+      <created>1642414412843</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1642414412843</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1.17">
+      <created>1642414795986</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1642414795986</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1.17">
+      <created>1642415077748</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1642415077748</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1.17">
+      <created>1642415406633</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1642415406633</updated>
+    </task>
+    <task id="LOCAL-00007" summary="1.17">
+      <created>1642422039808</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1642422039808</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+    <MESSAGE value="1.17" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.17" />
+  </component>
+</project>
