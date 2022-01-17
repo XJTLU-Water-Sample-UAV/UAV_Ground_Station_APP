@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.uav_app.user_interface.map_activity.child_view.point_list.SwipeView
+    <com.uav_app.Front_End.map_activity.child_view.point_list.SwipeView
         android:id="@+id/aPoint"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -44,6 +44,6 @@
                 android:textColor="#ffffff" />
         </TableRow>
 
-    </com.uav_app.user_interface.map_activity.child_view.point_list.SwipeView>
+    </com.uav_app.Front_End.map_activity.child_view.point_list.SwipeView>
 </FrameLayout>
 

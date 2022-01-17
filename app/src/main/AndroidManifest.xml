@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.uav_app.uav_manager">
+    package="com.uav_app.BackEnd.uav_manager">
 
     <uses-permission
         android:name="android.permission.HARDWARE_TEST"
@@ -45,7 +45,7 @@
             android:value="def8e453c7b07fa185b3f5f9fb65825c" />
 
         <activity
-            android:name="com.uav_app.user_interface.map_activity.MapActivity"
+            android:name="com.uav_app.Front_End.map_activity.MapActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

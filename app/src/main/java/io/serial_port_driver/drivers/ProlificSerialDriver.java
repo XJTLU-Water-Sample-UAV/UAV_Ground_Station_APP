@@ -16,7 +16,7 @@ import android.hardware.usb.UsbEndpoint;
 import android.hardware.usb.UsbInterface;
 import android.util.Log;
 
-import com.uav_app.uav_manager.BuildConfig;
+import com.uav_app.BackEnd.uav_manager.BuildConfig;
 
 import java.io.IOException;
 import java.util.Collections;

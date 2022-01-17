@@ -6,13 +6,13 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.hardware.usb.UsbManager;
 
-import com.uav_app.message_manager.MavlinkMsgManager;
-import com.uav_app.uav_manager.UavStateManager;
-import com.uav_app.usb_manager.UsbConnectManager;
-import com.uav_app.usb_manager.UsbStateReceiver;
-import com.uav_app.user_interface.OperationStateMachine;
-import com.uav_app.user_interface.UIObserver;
-import com.uav_app.user_interface.map_activity.MapActivityState;
+import com.uav_app.BackEnd.message_manager.MavlinkMsgManager;
+import com.uav_app.BackEnd.uav_manager.UavStateManager;
+import com.uav_app.BackEnd.usb_manager.UsbConnectManager;
+import com.uav_app.BackEnd.usb_manager.UsbStateReceiver;
+import com.uav_app.Front_End.OperationStateMachine;
+import com.uav_app.Front_End.UIObserver;
+import com.uav_app.Front_End.map_activity.MapActivityState;
 
 public class MyApplication extends Application {
     // 全局APP对象
