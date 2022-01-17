@@ -26,13 +26,13 @@ import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
-import com.uav_app.tools.AccessParameter;
 import com.uav_app.back_end.uav_manager.R;
 import com.uav_app.back_end.uav_manager.nav_point.CoordinateTransformUtil;
 import com.uav_app.back_end.uav_manager.nav_point.NavPoint;
 import com.uav_app.back_end.uav_manager.nav_point.NavPointManager;
 import com.uav_app.front_end.map_activity.MapActivity;
 import com.uav_app.front_end.map_activity.MapActivityState;
+import com.uav_app.tools.AccessParameter;
 
 import java.util.ArrayList;
 import java.util.List;

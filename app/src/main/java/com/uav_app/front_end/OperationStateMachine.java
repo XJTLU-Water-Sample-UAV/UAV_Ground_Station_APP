@@ -7,9 +7,9 @@ import com.uav_app.front_end.map_activity.managers.TabManager;
 public class OperationStateMachine {
     // 本类单例对象
     private static OperationStateMachine stateMachine;
-    //
+    // 状态指针
     private State state;
-    //
+    // 状态参数
     private final MapActivityState mapActivityState;
 
     public static OperationStateMachine getOperationStateMachine() {
