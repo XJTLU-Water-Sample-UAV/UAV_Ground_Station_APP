@@ -9,9 +9,10 @@ import com.uav_app.MyApplication;
 import com.uav_app.uav_manager.UavStateInterface;
 import com.uav_app.uav_manager.UavStateManager;
 import com.uav_app.usb_manager.UsbConnectInterface;
-import com.uav_app.usb_manager.serial_port_driver.UsbSerialDriver;
 
 import java.util.List;
+
+import io.serial_port_driver.UsbSerialDriver;
 
 public class UIObserver implements UsbConnectInterface, UavStateInterface {
     // 本类单例对象
@@ -19,7 +20,7 @@ public class UIObserver implements UsbConnectInterface, UavStateInterface {
     private volatile static UIObserver observer;
     // 全局context
     private final Context context;
-
+    // 状态机
     private final OperationStateMachine stateMachine;
 
     private UIObserver() {
@@ -100,7 +101,7 @@ public class UIObserver implements UsbConnectInterface, UavStateInterface {
     }
 
     @Override
-    public void onIncomingMsg(byte[] data, int resultLen) {
+    public void onIncomingMessage(byte[] data) {
     }
 
     @Override

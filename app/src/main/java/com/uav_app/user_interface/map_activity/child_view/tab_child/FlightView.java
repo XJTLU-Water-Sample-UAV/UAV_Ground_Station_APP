@@ -11,13 +11,11 @@ import com.uav_app.user_interface.map_activity.managers.TabManager;
 
 @SuppressLint("ViewConstructor")
 public class FlightView extends ChildView {
-    private final TabManager tabManager;
     private final Button showButton;
 
     public FlightView(Context context, TabManager tabManager) {
-        super(context);
+        super(context, tabManager);
         LayoutInflater.from(context).inflate(R.layout.mode_flight, this);
-        this.tabManager = tabManager;
         this.showButton = findViewById(R.id.showInfoButton);
         showButton.setOnClickListener(v -> {
 

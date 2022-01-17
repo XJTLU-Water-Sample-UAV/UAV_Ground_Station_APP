@@ -9,6 +9,7 @@ import com.uav_app.uav_manager.R;
 import com.uav_app.uav_manager.UavStateManager;
 import com.uav_app.user_interface.OperationStateMachine;
 import com.uav_app.user_interface.map_activity.MapActivityState;
+import com.uav_app.user_interface.map_activity.managers.TabManager;
 
 @SuppressLint("ViewConstructor")
 public class WaitView extends ChildView implements MapActivityState.StateChangeListener {
@@ -19,8 +20,8 @@ public class WaitView extends ChildView implements MapActivityState.StateChangeL
     // 监听器ID
     private static final int LISTENER_ID = 0x03;
 
-    public WaitView(Context context) {
-        super(context);
+    public WaitView(Context context, TabManager tabManager) {
+        super(context, tabManager);
         LayoutInflater.from(context).inflate(R.layout.mode_wait, this);
         MapActivityState.getMapActivityState().addListener(LISTENER_ID, this);
         selectButton = findViewById(R.id.selectButton);
@@ -28,6 +29,8 @@ public class WaitView extends ChildView implements MapActivityState.StateChangeL
         selectButton.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine()
                 .switchState(OperationStateMachine.SwitchCondition.CONDITION_ON_CLICK_SELECT));
         unlockButton.setOnClickListener(v -> {
+            UavStateManager.getUavStateManager().unlockUav();
+            /*
             if (MapActivityState.getMapActivityState().waitViewState.isUavUnlocked) {
                 OperationStateMachine.getOperationStateMachine().switchState(OperationStateMachine
                         .SwitchCondition.CONDITION_UAV_TAKEOFF);
@@ -38,6 +41,12 @@ public class WaitView extends ChildView implements MapActivityState.StateChangeL
                         .SwitchCondition.CONDITION_UAV_UNLOCK);
                 UavStateManager.getUavStateManager().unlockUav();
             }
+            */
+        });
+
+        Button takeoffButton = findViewById(R.id.takeoffButton);
+        takeoffButton.setOnClickListener(v -> {
+            UavStateManager.getUavStateManager().takeoff();
         });
     }
 

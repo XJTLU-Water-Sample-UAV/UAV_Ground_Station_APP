@@ -10,14 +10,15 @@ import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 
 import com.uav_app.MyApplication;
-import com.uav_app.usb_manager.serial_port_driver.UsbSerialDriver;
-import com.uav_app.usb_manager.serial_port_driver.UsbSerialPort;
-import com.uav_app.usb_manager.serial_port_driver.UsbSerialProber;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import io.serial_port_driver.UsbSerialDriver;
+import io.serial_port_driver.UsbSerialPort;
+import io.serial_port_driver.UsbSerialProber;
 
 /**
  * 本类用于管理USB数传设备的连接
@@ -256,7 +257,7 @@ public class UsbConnectManager {
      *
      * @param data 传入需要发送的字节
      */
-    public void sendMessage(byte[] data) {
+    public void sendSerialMessage(byte[] data) {
         if (isConnect) {
             sendingThreadManager.addMessage(data, mUsbSerialPort);
         }
@@ -387,11 +388,14 @@ public class UsbConnectManager {
                             return;
                         }
                         isParsing = false;
+                        // 拷贝有效数据
+                        byte[] result = new byte[resultLen];
+                        System.arraycopy(data, 0, result, 0, resultLen);
                         // 解析消息
                         if (UsbConnectManager.getConnectManager().isConnect()) {
                             for (int i = 0; i < observerList.size(); i++) {
                                 UsbConnectInterface messageInterface = observerList.get(i);
-                                messageInterface.onIncomingMsg(data, resultLen);
+                                messageInterface.onIncomingMessage(result);
                             }
                         }
                         Arrays.fill(data, (byte) 0);

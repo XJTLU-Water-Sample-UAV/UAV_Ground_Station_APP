@@ -1,19 +1,21 @@
 package com.uav_app.user_interface.map_activity.child_view.tab_child;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import com.uav_app.uav_manager.R;
 import com.uav_app.usb_manager.UsbConnectManager;
 import com.uav_app.user_interface.OperationStateMachine;
+import com.uav_app.user_interface.map_activity.managers.TabManager;
 
+@SuppressLint("ViewConstructor")
 public class UsbUnconnectedView extends ChildView {
     private final Button button;
 
-    public UsbUnconnectedView(Context context) {
-        super(context);
+    public UsbUnconnectedView(Context context, TabManager tabManager) {
+        super(context, tabManager);
         LayoutInflater.from(context).inflate(R.layout.mode_usb_unconnect, this);
         // 获取按钮
         button = findViewById(R.id.usbButton);
@@ -24,12 +26,12 @@ public class UsbUnconnectedView extends ChildView {
     }
 
     public int getButtonHeight() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
+        LayoutParams layoutParams = (LayoutParams) button.getLayoutParams();
         return button.getHeight() + layoutParams.getMarginStart() + layoutParams.getMarginEnd();
     }
 
     public int getButtonMargin() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
+        LayoutParams layoutParams = (LayoutParams) button.getLayoutParams();
         return layoutParams.getMarginStart();
     }
 }

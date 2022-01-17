@@ -31,14 +31,13 @@ import com.uav_app.uav_manager.R;
 import com.uav_app.uav_manager.nav_point.CoordinateTransformUtil;
 import com.uav_app.uav_manager.nav_point.NavPoint;
 import com.uav_app.uav_manager.nav_point.NavPointManager;
+import com.uav_app.user_interface.map_activity.MapActivity;
 import com.uav_app.user_interface.map_activity.MapActivityState;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapManager implements MapActivityState.StateChangeListener {
-    // 中介者模式实现管理类间互相通信
-    private final Connector connector;
+public class MapManager extends Manager implements MapActivityState.StateChangeListener {
     // 地图对象
     private final AMap aMap;
     // 选点回调函数
@@ -49,11 +48,9 @@ public class MapManager implements MapActivityState.StateChangeListener {
     private final ArrayList<Marker> markerList;
     // 画线对象
     private Polyline polyline;
-    // 监听器ID
-    private static final int LISTENER_ID = 0x02;
 
-    public MapManager(MapView mMapView, Connector connector) {
-        this.connector = connector;
+    public MapManager(MapActivity activity, MapView mMapView) {
+        super(activity, 0x02);
         // 获取map对象
         aMap = mMapView.getMap();
         UiSettings uiSettings = aMap.getUiSettings();
@@ -83,7 +80,8 @@ public class MapManager implements MapActivityState.StateChangeListener {
         polyline = aMap.addPolyline(polylineOptions);
     }
 
-    public void initMap() {
+    public void init(Connector connector) {
+        super.init(connector);
         MapActivityState.getMapActivityState().addListener(LISTENER_ID, this);
         // 移动到用户位置
         String provider = null;

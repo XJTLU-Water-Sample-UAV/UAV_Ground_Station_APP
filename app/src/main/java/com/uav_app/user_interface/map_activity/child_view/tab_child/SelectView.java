@@ -20,24 +20,20 @@ import com.uav_app.usb_manager.UsbConnectManager;
 import com.uav_app.user_interface.OperationStateMachine;
 import com.uav_app.user_interface.map_activity.MapActivityState;
 import com.uav_app.user_interface.map_activity.child_view.point_list.SwipeView;
-import com.uav_app.user_interface.map_activity.managers.Connector;
 import com.uav_app.user_interface.map_activity.managers.TabManager;
 
 import java.util.ArrayList;
 
 @SuppressLint("ViewConstructor")
 public class SelectView extends ChildView {
-    private final TabManager tabManager;
-    private final Connector connector;
     private final Button showButton;
     private final ListView mListView;
     private final PointListAdapter mAdapter;
 
-    public SelectView(Context context, TabManager tabManager, Connector connector) {
-        super(context);
+    public SelectView(Context context, TabManager tabManager) {
+        super(context, tabManager);
         LayoutInflater.from(context).inflate(R.layout.mode_select, this);
         this.tabManager = tabManager;
-        this.connector = connector;
         this.showButton = findViewById(R.id.showButton);
         Button cancelButton = findViewById(R.id.cancelButton);
         Button sendButton = findViewById(R.id.sendButton);
@@ -53,7 +49,7 @@ public class SelectView extends ChildView {
         sendButton.setOnClickListener(v -> {
             // 判断是否没有选点
             if (MapActivityState.getMapActivityState().pointManager.getPointNum() == 0) {
-                Toast.makeText(connector.getContext(), "请选择至少一个航点", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "请选择至少一个航点", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (UsbConnectManager.getConnectManager().isConnect()) {
@@ -101,7 +97,7 @@ public class SelectView extends ChildView {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                connector.deletePoint(position);
+                tabManager.getConnector().deletePoint(position);
                 // 动画结束后，恢复ListView所有子View的属性
                 for (int i = 0; i < mListView.getChildCount(); ++i) {
                     View view = mListView.getChildAt(i);
@@ -168,17 +164,17 @@ public class SelectView extends ChildView {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             // 加载布局
-            LayoutInflater factory = LayoutInflater.from(connector.getContext());
+            LayoutInflater factory = LayoutInflater.from(tabManager.getConnector().getContext());
             View outView = factory.inflate(R.layout.listview_point, null);
             SwipeView view = outView.findViewById(R.id.aPoint);
             view.setText(pointManager.getPointDescription(position));
             // 设置点击事件监听器
             view.setTextOnClickListener(v -> {
                 tabManager.closeTab();
-                connector.moveToPoint(pointManager.getLng(position), pointManager.getLat(position));
-                connector.showPointInfoWindow(position);
+                tabManager.getConnector().moveToPoint(pointManager.getLng(position), pointManager.getLat(position));
+                tabManager.getConnector().showPointInfoWindow(position);
             });
-            view.setModifyOnClickListener(v -> connector.modifyPoint(position));
+            view.setModifyOnClickListener(v -> tabManager.getConnector().modifyPoint(position));
             view.setDelOnClickListener(v -> listDeleteAnim(position));
             view.setOnSlidingListener(new SwipeView.OnSlidingListener() {
                 @Override

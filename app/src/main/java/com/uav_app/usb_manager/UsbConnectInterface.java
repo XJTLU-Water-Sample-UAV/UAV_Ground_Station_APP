@@ -1,8 +1,8 @@
 package com.uav_app.usb_manager;
 
-import com.uav_app.usb_manager.serial_port_driver.UsbSerialDriver;
-
 import java.util.List;
+
+import io.serial_port_driver.UsbSerialDriver;
 
 /**
  * 管理USB设备状态的前端回调接口
@@ -70,5 +70,5 @@ public interface UsbConnectInterface {
     /**
      * 传入收到消息
      */
-    void onIncomingMsg(byte[] data, int resultLen);
+    void onIncomingMessage(byte[] data);
 }

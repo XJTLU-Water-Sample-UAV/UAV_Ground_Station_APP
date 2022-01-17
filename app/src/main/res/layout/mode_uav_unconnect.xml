@@ -9,9 +9,10 @@
     <TextView
         android:id="@+id/unconnectText"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="86dp"
         android:layout_margin="5dp"
         android:background="@drawable/border_textview"
+        android:gravity="center"
         android:text="@string/unconnectViewText"
         android:textAlignment="center"
         android:textColor="#555555"

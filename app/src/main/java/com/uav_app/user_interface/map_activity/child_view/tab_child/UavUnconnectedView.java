@@ -12,7 +12,7 @@ import com.uav_app.user_interface.map_activity.managers.TabManager;
 @SuppressLint("ViewConstructor")
 public class UavUnconnectedView extends ChildView {
     public UavUnconnectedView(Context context, TabManager tabManager) {
-        super(context);
+        super(context, tabManager);
         LayoutInflater.from(context).inflate(R.layout.mode_uav_unconnect, this);
         Button button = findViewById(R.id.connectButton);
         button.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine().switchState(

@@ -1,6 +1,7 @@
 package com.uav_app.user_interface.map_activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,6 +40,7 @@ public class MapActivity extends AppCompatActivity {
             Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS
     };
 
+    @SuppressLint("CheckResult")
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +67,17 @@ public class MapActivity extends AppCompatActivity {
         }
         int finalStatusBarHeight = statusBarHeight;
         // 定义中介器对象
-        Connector mediator = new Connector(this);
+        Connector connector = new Connector(this);
         // 初始化管理类
-        mapManager = new MapManager(mMapView, mediator);
-        tabManager = new TabManager(mediator);
+        mapManager = new MapManager(this, mMapView);
+        tabManager = new TabManager(this);
         mMapView.post(() -> {
-            tabManager.initTab(mMapView.getHeight(), finalStatusBarHeight);
-            mapManager.initMap();
+            tabManager.init(connector, mMapView.getHeight(), finalStatusBarHeight);
+            mapManager.init(connector);
             MapActivityState.getMapActivityState().applyChange();
         });
         // 初始化中介器
-        mediator.initConnector(mapManager, tabManager);
+        connector.initConnector(mapManager, tabManager);
         // 尝试连接数传
         UsbConnectManager.getConnectManager().connectDevice();
     }

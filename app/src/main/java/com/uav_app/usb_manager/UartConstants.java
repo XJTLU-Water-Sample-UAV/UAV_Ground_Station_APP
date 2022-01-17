@@ -2,7 +2,8 @@ package com.uav_app.usb_manager;
 
 import com.uav_app.MyApplication;
 import com.uav_app.tools.AccessParameter;
-import com.uav_app.usb_manager.serial_port_driver.UsbSerialPort;
+
+import io.serial_port_driver.UsbSerialPort;
 
 /**
  * 本类储存串口设备的一些基本参数。

@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.amap.api.maps.MapView;
-import com.uav_app.MyApplication;
 import com.uav_app.uav_manager.R;
+import com.uav_app.user_interface.map_activity.MapActivity;
 import com.uav_app.user_interface.map_activity.MapActivityState;
 import com.uav_app.user_interface.map_activity.child_view.tab_child.ChildView;
 import com.uav_app.user_interface.map_activity.child_view.tab_child.FlightView;
@@ -24,9 +24,7 @@ import com.uav_app.user_interface.map_activity.child_view.tab_child.WaitView;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class TabManager implements MapActivityState.StateChangeListener {
-    // 中介者模式实现管理类间互相通信
-    private final Connector connector;
+public class TabManager extends Manager implements MapActivityState.StateChangeListener {
     // 子view的哈希表
     private final HashMap<TabState, ChildView> viewMap;
     // 当前的视图
@@ -43,35 +41,36 @@ public class TabManager implements MapActivityState.StateChangeListener {
     private ValueAnimator showAnimator, closeAnimator;
     // 组件面板是否展开
     private boolean isTabShow = false;
-    // 监听器ID
-    private static final int LISTENER_ID = 0x01;
 
     @SuppressLint("InflateParams")
-    public TabManager(Connector connector) {
-        this.connector = connector;
+    public TabManager(MapActivity activity) {
+        super(activity, 0x01);
         // 获取需要从其他xml加载的组件
         viewMap = new HashMap<>();
-        viewMap.put(TabState.VIEW_USB_UNCONNECTED, new UsbUnconnectedView(connector.getContext()));
-        viewMap.put(TabState.VIEW_UAV_UNCONNECTED, new UavUnconnectedView(connector.getContext(), this));
-        viewMap.put(TabState.VIEW_WAIT, new WaitView(connector.getContext()));
-        viewMap.put(TabState.VIEW_SELECT, new SelectView(connector.getContext(), this, connector));
-        viewMap.put(TabState.VIEW_FLIGHT, new FlightView(connector.getContext(), this));
+        viewMap.put(TabState.VIEW_USB_UNCONNECTED, new UsbUnconnectedView(activity, this));
+        viewMap.put(TabState.VIEW_UAV_UNCONNECTED, new UavUnconnectedView(activity, this));
+        viewMap.put(TabState.VIEW_WAIT, new WaitView(activity, this));
+        viewMap.put(TabState.VIEW_SELECT, new SelectView(activity, this));
+        viewMap.put(TabState.VIEW_FLIGHT, new FlightView(activity, this));
         // 获取其他面板
-        tab = connector.findMotherViewById(R.id.tab);
-        background = connector.findMotherViewById(R.id.background);
+        tab = activity.findViewById(R.id.tab);
+        background = activity.findViewById(R.id.background);
         // 设置遮罩层颜色和透明度
-        connector.findMotherViewById(R.id.background).setBackgroundColor(Color.WHITE);
-        connector.findMotherViewById(R.id.background).setAlpha(0);
+        activity.findViewById(R.id.background).setBackgroundColor(Color.WHITE);
+        activity.findViewById(R.id.background).setAlpha(0);
         // 加载USB未连接面板
         showChildView(TabState.VIEW_USB_UNCONNECTED);
     }
 
-    public void initTab(int mapHeight, int status_bar_height) {
+    public void init(Connector connector, int mapHeight, int status_bar_height) {
+        super.init(connector);
         MapActivityState.getMapActivityState().addListener(LISTENER_ID, this);
         // 设置面板收起和展开位置
         UsbUnconnectedView usbUnconnectedView = (UsbUnconnectedView) viewMap.get(TabState.VIEW_USB_UNCONNECTED);
         assert usbUnconnectedView != null;
-        this.hideLocation = usbUnconnectedView.getButtonHeight() * 2;
+        // TODO: 改回来
+        //this.hideLocation = usbUnconnectedView.getButtonHeight() * 2;
+        this.hideLocation = usbUnconnectedView.getButtonHeight() * 3;
         this.packUpLocation = mapHeight - hideLocation;
         this.showLocation = usbUnconnectedView.getButtonMargin() + status_bar_height;
         // 重设控件面板位置和大小
