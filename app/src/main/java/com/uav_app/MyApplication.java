@@ -10,8 +10,8 @@ import com.uav_app.back_end.message_manager.MavlinkMsgManager;
 import com.uav_app.back_end.uav_manager.UavStateManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
 import com.uav_app.back_end.usb_manager.UsbStateReceiver;
-import com.uav_app.front_end.OperationStateMachine;
-import com.uav_app.front_end.UIObserver;
+import com.uav_app.front_end.UiStateMachine;
+import com.uav_app.front_end.UiObserver;
 import com.uav_app.front_end.map_activity.MapActivityState;
 
 public class MyApplication extends Application {
@@ -27,11 +27,11 @@ public class MyApplication extends Application {
         // 初始化context对象
         context = getApplicationContext();
         // 构建UI控件监听器对象
-        UIObserver observer = UIObserver.getUIObserver();
+        UiObserver observer = UiObserver.getUIObserver();
         // 初始化Mavlink和USB管理对象
         UsbConnectManager connectManager = UsbConnectManager.getConnectManager();
         MavlinkMsgManager.getMessageManager();
-        OperationStateMachine.getOperationStateMachine();
+        UiStateMachine.getOperationStateMachine();
         MapActivityState.getMapActivityState();
         // 初始USB化广播
         UsbStateReceiver mUsbStateReceiver = new UsbStateReceiver(connectManager);

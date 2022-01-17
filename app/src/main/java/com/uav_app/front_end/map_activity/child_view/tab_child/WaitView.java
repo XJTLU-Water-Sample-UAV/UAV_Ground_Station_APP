@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.uav_app.back_end.uav_manager.R;
 import com.uav_app.back_end.uav_manager.UavStateManager;
-import com.uav_app.front_end.OperationStateMachine;
+import com.uav_app.front_end.UiStateMachine;
 import com.uav_app.front_end.map_activity.MapActivityState;
 import com.uav_app.front_end.map_activity.managers.TabManager;
 
@@ -26,18 +26,18 @@ public class WaitView extends ChildView implements MapActivityState.StateChangeL
         MapActivityState.getMapActivityState().addListener(LISTENER_ID, this);
         selectButton = findViewById(R.id.selectButton);
         unlockButton = findViewById(R.id.unlockButton);
-        selectButton.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine()
-                .switchState(OperationStateMachine.SwitchCondition.CONDITION_ON_CLICK_SELECT));
+        selectButton.setOnClickListener(v -> UiStateMachine.getOperationStateMachine()
+                .switchState(UiStateMachine.SwitchCondition.CONDITION_ON_CLICK_SELECT));
         unlockButton.setOnClickListener(v -> {
             UavStateManager.getUavStateManager().unlockUav();
             /*
             if (MapActivityState.getMapActivityState().waitViewState.isUavUnlocked) {
-                OperationStateMachine.getOperationStateMachine().switchState(OperationStateMachine
+                UiStateMachine.getOperationStateMachine().switchState(UiStateMachine
                         .SwitchCondition.CONDITION_UAV_TAKEOFF);
                 UavStateManager.getUavStateManager().takeoff();
 
             } else {
-                OperationStateMachine.getOperationStateMachine().switchState(OperationStateMachine
+                UiStateMachine.getOperationStateMachine().switchState(UiStateMachine
                         .SwitchCondition.CONDITION_UAV_UNLOCK);
                 UavStateManager.getUavStateManager().unlockUav();
             }

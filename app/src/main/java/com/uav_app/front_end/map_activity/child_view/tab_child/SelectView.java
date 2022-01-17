@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.uav_app.back_end.uav_manager.R;
 import com.uav_app.back_end.uav_manager.nav_point.NavPointManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
-import com.uav_app.front_end.OperationStateMachine;
+import com.uav_app.front_end.UiStateMachine;
 import com.uav_app.front_end.map_activity.MapActivityState;
 import com.uav_app.front_end.map_activity.child_view.point_list.SwipeView;
 import com.uav_app.front_end.map_activity.managers.TabManager;
@@ -44,8 +44,8 @@ public class SelectView extends ChildView {
                 tabManager.openTab();
             }
         });
-        cancelButton.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine()
-                .switchState(OperationStateMachine.SwitchCondition.CONDITION_ON_CLICK_CANCEL));
+        cancelButton.setOnClickListener(v -> UiStateMachine.getOperationStateMachine()
+                .switchState(UiStateMachine.SwitchCondition.CONDITION_ON_CLICK_CANCEL));
         sendButton.setOnClickListener(v -> {
             // 判断是否没有选点
             if (MapActivityState.getMapActivityState().pointManager.getPointNum() == 0) {
@@ -56,7 +56,7 @@ public class SelectView extends ChildView {
                 // UavStateManager.getUavStateManager().connectUav();
                 Toast.makeText(context, "发送成功", Toast.LENGTH_SHORT).show();
             }
-            OperationStateMachine.getOperationStateMachine().switchState(OperationStateMachine
+            UiStateMachine.getOperationStateMachine().switchState(UiStateMachine
                     .SwitchCondition.CONDITION_ON_CLICK_CONFIRM);
         });
         // 设置选点列表适配器

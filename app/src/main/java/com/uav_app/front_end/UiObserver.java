@@ -14,25 +14,25 @@ import java.util.List;
 
 import io.serial_port_driver.UsbSerialDriver;
 
-public class UIObserver implements UsbConnectInterface, UavStateInterface {
+public class UiObserver implements UsbConnectInterface, UavStateInterface {
     // 本类单例对象
     @SuppressLint("StaticFieldLeak")
-    private volatile static UIObserver observer;
+    private volatile static UiObserver observer;
     // 全局context
     private final Context context;
     // 状态机
-    private final OperationStateMachine stateMachine;
+    private final UiStateMachine stateMachine;
 
-    private UIObserver() {
+    private UiObserver() {
         this.context = MyApplication.getApplication().getContext();
-        this.stateMachine = OperationStateMachine.getOperationStateMachine();
+        this.stateMachine = UiStateMachine.getOperationStateMachine();
     }
 
-    public static UIObserver getUIObserver() {
+    public static UiObserver getUIObserver() {
         if (observer == null) {
             synchronized (UavStateManager.class) {
                 if (observer == null) {
-                    observer = new UIObserver();
+                    observer = new UiObserver();
                 }
             }
         }
@@ -62,7 +62,7 @@ public class UIObserver implements UsbConnectInterface, UavStateInterface {
     @Override
     public void onConnectSuccess() {
         Toast.makeText(context, "数传连接成功", Toast.LENGTH_SHORT).show();
-        stateMachine.switchState(OperationStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
+        stateMachine.switchState(UiStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class UIObserver implements UsbConnectInterface, UavStateInterface {
     @Override
     public void onLoseConnectDevice() {
         Toast.makeText(context, "数传断开连接", Toast.LENGTH_SHORT).show();
-        stateMachine.switchState(OperationStateMachine.SwitchCondition.CONDITION_USB_LOSE);
+        stateMachine.switchState(UiStateMachine.SwitchCondition.CONDITION_USB_LOSE);
     }
 
     @Override
