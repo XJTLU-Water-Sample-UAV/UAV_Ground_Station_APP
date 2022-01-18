@@ -27,7 +27,7 @@ public class UsbConnectManager {
     // 本类单例对象
     private volatile static UsbConnectManager connectManager;
     // USB连接观察者对象列表
-    private final ArrayList<UsbConnectInterface> observerList;
+    private UsbConnectInterface receiver;
     // 负责管理USB设备的类
     private UsbManager manager;
     // 找到的USB设备
@@ -49,9 +49,8 @@ public class UsbConnectManager {
      * 构造函数，该类用于向其他类提供连接串口的入口
      */
     private UsbConnectManager() {
-        observerList = new ArrayList<>();
-        sendingThreadManager = new SendingThreadManager();
-        receivingThreadManager = new ReceivingThreadManager();
+        this.sendingThreadManager = new SendingThreadManager();
+        this.receivingThreadManager = new ReceivingThreadManager();
     }
 
     /**
@@ -71,10 +70,10 @@ public class UsbConnectManager {
     /**
      * 添加USB事件的监听器
      *
-     * @param mUsbConnectInterface 监听器对象
+     * @param receiver 监听器对象
      */
-    public void addObserver(UsbConnectInterface mUsbConnectInterface) {
-        observerList.add(mUsbConnectInterface);
+    public void setReceiver(UsbConnectInterface receiver) {
+        this.receiver = receiver;
     }
 
     /**
@@ -94,9 +93,8 @@ public class UsbConnectManager {
         List<UsbSerialDriver> driverList = serialProber.findAllDrivers(manager);
         if (driverList.size() == 0) {
             // 没有找到任何USB设备
-            for (int i = 0; i < observerList.size(); i++) {
-                UsbConnectInterface connectInterface = observerList.get(i);
-                connectInterface.onCanNotFoundDevice();
+            if (receiver != null) {
+                receiver.onCanNotFoundDevice();
             }
         } else if (driverList.size() == 1) {
             // 找到USB设备
@@ -105,9 +103,8 @@ public class UsbConnectManager {
             checkUsbPermission();
         } else {
             // 找到多个可用设备
-            for (int i = 0; i < observerList.size(); i++) {
-                UsbConnectInterface connectInterface = observerList.get(i);
-                connectInterface.onFindMultipleDevices(driverList);
+            if (receiver != null) {
+                receiver.onFindMultipleDevices(driverList);
             }
         }
     }
@@ -132,9 +129,8 @@ public class UsbConnectManager {
         List<UsbSerialDriver> driverList = serialProber.findAllDrivers(manager);
         if (driverList.size() == 0) {
             // 没有找到任何USB设备
-            for (int i = 0; i < observerList.size(); i++) {
-                UsbConnectInterface connectInterface = observerList.get(i);
-                connectInterface.onCanNotFoundDevice();
+            if (receiver != null) {
+                receiver.onCanNotFoundDevice();
             }
         } else {
             // 找到可用USB设备
@@ -150,9 +146,8 @@ public class UsbConnectManager {
                 }
             }
             // 没有找到指定设备
-            for (int i = 0; i < observerList.size(); i++) {
-                UsbConnectInterface connectInterface = observerList.get(i);
-                connectInterface.onCanNotFoundSpecifiedDevice();
+            if (receiver != null) {
+                receiver.onCanNotFoundSpecifiedDevice();
             }
         }
     }
@@ -178,7 +173,22 @@ public class UsbConnectManager {
     private void getUsbPermission(UsbDevice mUSBDevice) {
         // 初始化USB权限更改时接收的广播
         UsbPermissionReceiver mUsbPermissionReceiver = new UsbPermissionReceiver(mUsbDevice,
-                observerList);
+                new UsbPermissionReceiver.PermissionObserver() {
+                    @Override
+                    public void onPermissionObtained(int vendorId, int productId) {
+                        // 授权成功，连接USB设备
+                        connectManager.connectSpecifiedDevice(vendorId, productId);
+                    }
+
+                    @Override
+                    public void onPermissionNotObtained() {
+                        // 用户点击拒绝，授权失败
+                        if (receiver != null) {
+                            receiver.onPermissionNotObtained();
+                        }
+                        connectManager.disconnect();
+                    }
+                });
         // 注册广播接收器
         String ACTION_USB_PERMISSION = "com.android.usb.USB_PERMISSION";
         IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
@@ -187,8 +197,7 @@ public class UsbConnectManager {
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         MyApplication.getApplication().getContext().registerReceiver(mUsbPermissionReceiver, filter);
         // 获取设备访问权限
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(MyApplication.getApplication()
-                        .getContext(),
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(MyApplication.getApplication().getContext(),
                 0, new Intent(ACTION_USB_PERMISSION), 0);
         manager.requestPermission(mUSBDevice, pendingIntent);
     }
@@ -211,17 +220,15 @@ public class UsbConnectManager {
                         constants.getStopBits(), constants.getParity());
                 isConnect = true;
                 // 执行连接成功回调
-                for (int i = 0; i < observerList.size(); i++) {
-                    UsbConnectInterface connectInterface = observerList.get(i);
-                    connectInterface.onConnectSuccess();
+                if (receiver != null) {
+                    receiver.onConnectSuccess();
                 }
                 // 开始接收消息
                 startReceiveMessage();
             } catch (IOException ioe) {
                 // 连接失败
-                for (int i = 0; i < observerList.size(); i++) {
-                    UsbConnectInterface connectInterface = observerList.get(i);
-                    connectInterface.onConnectFail(ioe);
+                if (receiver != null) {
+                    receiver.onConnectFail(ioe);
                 }
                 disconnect();
             }
@@ -244,9 +251,8 @@ public class UsbConnectManager {
             // 断开连接
             mDeviceConnection.close();
             // 回调断连接口函数
-            for (int i = 0; i < observerList.size(); i++) {
-                UsbConnectInterface connectInterface = observerList.get(i);
-                connectInterface.onLoseConnectDevice();
+            if (receiver != null) {
+                receiver.onLoseConnectDevice();
             }
         }
         isConnect = false;
@@ -333,9 +339,8 @@ public class UsbConnectManager {
                             mUsbSerialPort.purgeHwBuffers(true, false);
                             mUsbSerialPort.write(list.get(0), 2000);
                         } catch (IOException e) {
-                            for (int i = 0; i < observerList.size(); i++) {
-                                UsbConnectInterface messageInterface = observerList.get(i);
-                                messageInterface.onSendMessageError(e);
+                            if (receiver != null) {
+                                receiver.onSendMessageError(e);
                             }
                         }
                         list.remove(0);
@@ -380,9 +385,8 @@ public class UsbConnectManager {
                             isParsing = false;
                             // 回调接收错误线程
                             if (UsbConnectManager.getConnectManager().isConnect()) {
-                                for (int i = 0; i < observerList.size(); i++) {
-                                    UsbConnectInterface messageInterface = observerList.get(i);
-                                    messageInterface.onReceiveMessageError(e);
+                                if (receiver != null) {
+                                    receiver.onReceiveMessageError(e);
                                 }
                             }
                             return;
@@ -393,18 +397,16 @@ public class UsbConnectManager {
                         System.arraycopy(data, 0, result, 0, resultLen);
                         // 解析消息
                         if (UsbConnectManager.getConnectManager().isConnect()) {
-                            for (int i = 0; i < observerList.size(); i++) {
-                                UsbConnectInterface messageInterface = observerList.get(i);
-                                messageInterface.onIncomingMessage(result);
+                            if (receiver != null) {
+                                receiver.onIncomingMessage(result);
                             }
                         }
                         Arrays.fill(data, (byte) 0);
                     }
                 });
                 receiveThread.start();
-                for (int i = 0; i < observerList.size(); i++) {
-                    UsbConnectInterface messageInterface = observerList.get(i);
-                    messageInterface.onStartReceiveMessage();
+                if (receiver != null) {
+                    receiver.onStartReceiveMessage();
                 }
             }
         }
@@ -422,9 +424,8 @@ public class UsbConnectManager {
                 }
             }
             receiveThread = null;
-            for (int i = 0; i < observerList.size(); i++) {
-                UsbConnectInterface messageInterface = observerList.get(i);
-                messageInterface.onStopReceiveMessage();
+            if (receiver != null) {
+                receiver.onStopReceiveMessage();
             }
         }
 

@@ -14,25 +14,25 @@ import java.util.List;
 
 import io.serial_port_driver.UsbSerialDriver;
 
-public class UiObserver implements UsbConnectInterface, UavStateInterface {
+public class UIObserver implements UsbConnectInterface, UavStateInterface {
     // 本类单例对象
     @SuppressLint("StaticFieldLeak")
-    private volatile static UiObserver observer;
+    private volatile static UIObserver observer;
     // 全局context
     private final Context context;
     // 状态机
-    private final UiStateMachine stateMachine;
+    private final UIStateMachine stateMachine;
 
-    private UiObserver() {
+    private UIObserver() {
         this.context = MyApplication.getApplication().getContext();
-        this.stateMachine = UiStateMachine.getOperationStateMachine();
+        this.stateMachine = UIStateMachine.getOperationStateMachine();
     }
 
-    public static UiObserver getUIObserver() {
+    public static UIObserver getUIObserver() {
         if (observer == null) {
             synchronized (UavStateManager.class) {
                 if (observer == null) {
-                    observer = new UiObserver();
+                    observer = new UIObserver();
                 }
             }
         }
@@ -62,7 +62,7 @@ public class UiObserver implements UsbConnectInterface, UavStateInterface {
     @Override
     public void onConnectSuccess() {
         Toast.makeText(context, "数传连接成功", Toast.LENGTH_SHORT).show();
-        stateMachine.switchState(UiStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
+        stateMachine.switchState(UIStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class UiObserver implements UsbConnectInterface, UavStateInterface {
     @Override
     public void onLoseConnectDevice() {
         Toast.makeText(context, "数传断开连接", Toast.LENGTH_SHORT).show();
-        stateMachine.switchState(UiStateMachine.SwitchCondition.CONDITION_USB_LOSE);
+        stateMachine.switchState(UIStateMachine.SwitchCondition.CONDITION_USB_LOSE);
     }
 
     @Override

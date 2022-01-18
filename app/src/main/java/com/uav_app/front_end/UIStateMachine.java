@@ -4,26 +4,26 @@ import com.uav_app.back_end.usb_manager.UsbConnectManager;
 import com.uav_app.front_end.map_activity.MapActivityState;
 import com.uav_app.front_end.map_activity.managers.TabManager;
 
-public class UiStateMachine {
+public class UIStateMachine {
     // 本类单例对象
-    private static UiStateMachine stateMachine;
+    private static UIStateMachine stateMachine;
     // 状态指针
     private State state;
     // 状态参数
     private final MapActivityState mapActivityState;
 
-    public static UiStateMachine getOperationStateMachine() {
+    public static UIStateMachine getOperationStateMachine() {
         if (stateMachine == null) {
             synchronized (UsbConnectManager.class) {
                 if (stateMachine == null) {
-                    stateMachine = new UiStateMachine();
+                    stateMachine = new UIStateMachine();
                 }
             }
         }
         return stateMachine;
     }
 
-    private UiStateMachine() {
+    private UIStateMachine() {
         this.state = State.STATE_USB_UNCONNECTED;
         this.mapActivityState = MapActivityState.getMapActivityState();
     }

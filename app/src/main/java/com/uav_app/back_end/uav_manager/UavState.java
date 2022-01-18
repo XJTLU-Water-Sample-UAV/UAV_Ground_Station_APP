@@ -19,5 +19,7 @@ public enum UavState {
     // 降落中
     UAV_LANDING,
     // 任务完成等待回收
-    UAV_MISSION_ACCOMPLISHED
+    UAV_MISSION_ACCOMPLISHED,
+    // 无人机丢失（异常断开连接）
+    UAV_LOSS
 }

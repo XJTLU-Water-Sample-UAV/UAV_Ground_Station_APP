@@ -27,7 +27,7 @@ public class UavStateManager {
     private final ArrayList<UavStateInterface> observerList;
     // 无人机状态
     private UavState uavState;
-    // 无人机子栈列表
+    // MAVSDK子栈列表
     private final List<Disposable> disposables = new ArrayList<>();
     // 后端IP地址
     public static final String BACKEND_IP_ADDRESS = "127.0.0.1";
@@ -53,7 +53,7 @@ public class UavStateManager {
         this.observerList = new ArrayList<>();
         // 添加监听数传设备断联的观察者
         UsbObserver usbObserver = new UsbObserver();
-        UsbConnectManager.getConnectManager().addObserver(usbObserver);
+        UsbConnectManager.getConnectManager().setReceiver(usbObserver);
         // 创建服务器后端
         MavsdkServer mavsdkServer = new MavsdkServer();
         int mavsdkServerPort = mavsdkServer.run("udp://:" + BACKEND_PORT);

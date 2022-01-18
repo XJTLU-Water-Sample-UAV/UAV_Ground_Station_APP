@@ -40,7 +40,7 @@ public class MavlinkMsgManager {
         // 添加监听数传设备消息的观察者
         MavlinkObserver observer = new MavlinkObserver();
         connectManager = UsbConnectManager.getConnectManager();
-        connectManager.addObserver(observer);
+        connectManager.setReceiver(observer);
         // 创建客户端
         udpClient = new MavsdkUdpClient(UavStateManager.BACKEND_IP_ADDRESS, UavStateManager.BACKEND_PORT, 6000);
     }

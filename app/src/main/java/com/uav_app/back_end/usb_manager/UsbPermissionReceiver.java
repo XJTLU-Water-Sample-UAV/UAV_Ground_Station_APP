@@ -6,26 +6,23 @@ import android.content.Intent;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 
-import java.util.ArrayList;
-
 /**
  * 管理USB权限的监听器
  */
 public class UsbPermissionReceiver extends BroadcastReceiver {
     // USB设备管理函数
     private final UsbDevice mUsbDevice;
-    // 观察者对象列表
-    private final ArrayList<UsbConnectInterface> observerList;
+    // 观察者对象
+    private final PermissionObserver observer;
 
     /**
      * 构造函数，传入必要参数
      *
-     * @param mUsbDevice   USB设备对象
-     * @param observerList 观察者对象列表
+     * @param mUsbDevice USB设备对象
      */
-    public UsbPermissionReceiver(UsbDevice mUsbDevice, ArrayList<UsbConnectInterface> observerList) {
+    public UsbPermissionReceiver(UsbDevice mUsbDevice, PermissionObserver observer) {
         this.mUsbDevice = mUsbDevice;
-        this.observerList = observerList;
+        this.observer = observer;
     }
 
     @Override
@@ -44,16 +41,18 @@ public class UsbPermissionReceiver extends BroadcastReceiver {
                 if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)
                         && mUsbDevice.equals(device)) {
                     // 授权成功，连接USB设备
-                    connectManager.connectSpecifiedDevice(device.getVendorId(), device.getProductId());
+                    observer.onPermissionObtained(device.getVendorId(), device.getProductId());
                 } else {
                     // 用户点击拒绝，授权失败
-                    for (int i = 0; i < observerList.size(); i++) {
-                        UsbConnectInterface connectInterface = observerList.get(i);
-                        connectInterface.onPermissionNotObtained();
-                    }
-                    connectManager.disconnect();
+                    observer.onPermissionNotObtained();
                 }
             }
         }
+    }
+
+    public interface PermissionObserver {
+        void onPermissionObtained(int vendorId, int productId);
+
+        void onPermissionNotObtained();
     }
 }

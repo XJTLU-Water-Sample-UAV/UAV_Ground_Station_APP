@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.uav_app.back_end.uav_manager.R;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
-import com.uav_app.front_end.UiStateMachine;
+import com.uav_app.front_end.UIStateMachine;
 import com.uav_app.front_end.map_activity.managers.TabManager;
 
 @SuppressLint("ViewConstructor")
@@ -21,7 +21,7 @@ public class UsbUnconnectedView extends ChildView {
         button = findViewById(R.id.usbButton);
         button.setOnClickListener(v -> {
             UsbConnectManager.getConnectManager().connectDevice();
-            UiStateMachine.getOperationStateMachine().switchState(UiStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
+            UIStateMachine.getOperationStateMachine().switchState(UIStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
         });
     }
 
