@@ -158,12 +158,7 @@ public class EventBroker {
         }
 
         @Override
-        public void onNormalDisconnect() {
-
-        }
-
-        @Override
-        public void onAbnormalDisconnect() {
+        public void onUavDisconnect() {
 
         }
 

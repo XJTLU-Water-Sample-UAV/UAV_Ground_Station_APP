@@ -7,12 +7,7 @@ public interface UavStateInterface {
     void onUavConnect();
 
     /**
-     * 无人机正常断开连接
+     * 无人机断开连接
      */
-    void onNormalDisconnect();
-
-    /**
-     * 无人机异常断开连接
-     */
-    void onAbnormalDisconnect();
+    void onUavDisconnect();
 }

@@ -1,11 +1,8 @@
 package com.uav_app.back_end.uav_manager;
 
 import android.annotation.SuppressLint;
-import android.os.Looper;
-import android.widget.Toast;
 
 import com.amap.api.maps.model.LatLng;
-import com.uav_app.MyApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +20,7 @@ public class UavStateManager {
     // 观察者对象列表
     private UavStateInterface receiver;
     // 无人机状态
-    private UavState uavState;
+    private final UavState uavState;
     // MAVSDK子栈列表
     private final List<Disposable> disposables = new ArrayList<>();
     // 后端IP地址
@@ -55,17 +52,9 @@ public class UavStateManager {
         disposables.add(drone.getCore().getConnectionState().distinctUntilChanged().subscribe(connectionState -> {
             boolean isConnect = connectionState.getIsConnected();
             if (isConnect) {
-                new Thread() {
-                    @Override
-                    public void run() {
-                        Looper.prepare();
-                        Toast.makeText(MyApplication.getApplication(), "无人机已经连接", Toast.LENGTH_SHORT).show();
-                        Looper.loop();
-                    }
-                }.start();
+                receiver.onUavConnect();
             } else {
-
-
+                receiver.onUavDisconnect();
             }
         }));
         // 发布飞行模式监听请求
@@ -110,7 +99,7 @@ public class UavStateManager {
 
     public void unlockUav() {
         drone.getAction().arm().onErrorComplete().subscribe();
-        //drone.getCamera().takePhoto().subscribe();
+//        drone.getCamera().takePhoto().subscribe();
     }
 
     public void takeoff() {
@@ -124,27 +113,6 @@ public class UavStateManager {
 
     public void sendPoint(float x, float y, float z) {
 
-    }
-
-    /**
-     * 断开与无人机的连接
-     */
-    public void disconnectUav() {
-        if (uavState == UavState.UAV_NOT_CONNECT) {
-            return;
-        } else if (uavState == UavState.UAV_MISSION_ACCOMPLISHED) {
-            // 回调无人机正常断开连接函数
-            if (receiver != null) {
-                receiver.onNormalDisconnect();
-            }
-        } else {
-            // 回调无人机非正常断开连接函数
-            if (receiver != null) {
-                receiver.onAbnormalDisconnect();
-            }
-        }
-        // 将无人机连接状态设置为断开
-        uavState = UavState.UAV_NOT_CONNECT;
     }
 
     /**
