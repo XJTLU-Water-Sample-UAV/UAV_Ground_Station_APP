@@ -78,7 +78,7 @@ public class EventBroker {
         // 无人机起飞
         UAV_TAKEOFF,
         // 无人机失去连接
-        UAV_LOSE
+        UAV_DISCONNECT
     }
 
     public interface EventObserver {
@@ -154,12 +154,14 @@ public class EventBroker {
 
         @Override
         public void onUavConnect() {
-
+            publishEvent(Event.UAV_CONNECT);
         }
 
         @Override
         public void onUavDisconnect() {
-
+            if (UsbConnectManager.getConnectManager().isConnect() && UsbConnectManager.getConnectManager().isReceiving()) {
+                publishEvent(Event.UAV_DISCONNECT);
+            }
         }
 
         @Override

@@ -11,8 +11,7 @@ import io.serial_port_driver.UsbSerialPort;
 public class UartConstants {
     private static final UartConstants CONSTANTS = new UartConstants();
     // 存取参数的对象
-    AccessParameter parameter = new AccessParameter(MyApplication.getApplication().getContext(),
-            "DeviceData");
+    AccessParameter parameter = new AccessParameter(MyApplication.getContext(), "DeviceData");
     // 串口芯片基础参数
     private int vendorID;
     private int productID;

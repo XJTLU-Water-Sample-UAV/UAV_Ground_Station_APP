@@ -15,6 +15,7 @@ public class MyApplication extends Application {
     @SuppressLint("StaticFieldLeak")
     private static MyApplication mApp;
     // 全局Context对象
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
 
     @Override
