@@ -1,5 +1,6 @@
 package com.uav_app.back_end.message_manager;
 
+import com.uav_app.back_end.uav_manager.UavStateInterface;
 import com.uav_app.back_end.uav_manager.UavStateManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
 
@@ -9,6 +10,8 @@ import com.uav_app.back_end.usb_manager.UsbConnectManager;
 public class MavlinkMsgManager {
     // 本类单例对象
     private volatile static MavlinkMsgManager messageManager;
+    // 观察者对象列表
+    private MavlinkMsgInterface receiver;
     // USB连接管理
     private final UsbConnectManager connectManager;
     // MAVLink客户端
@@ -35,6 +38,15 @@ public class MavlinkMsgManager {
         connectManager = UsbConnectManager.getConnectManager();
         // 创建客户端
         udpClient = new MavsdkUdpClient(UavStateManager.BACKEND_IP_ADDRESS, UavStateManager.BACKEND_PORT, 6000);
+    }
+
+    /**
+     * 添加MAVLink事件的监听器
+     *
+     * @param receiver 监听器对象
+     */
+    public void setReceiver(MavlinkMsgInterface receiver) {
+        this.receiver = receiver;
     }
 
     /**

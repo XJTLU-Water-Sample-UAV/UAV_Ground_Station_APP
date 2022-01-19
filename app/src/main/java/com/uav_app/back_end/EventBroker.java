@@ -1,5 +1,6 @@
 package com.uav_app.back_end;
 
+import com.uav_app.back_end.message_manager.MavlinkMsgInterface;
 import com.uav_app.back_end.message_manager.MavlinkMsgManager;
 import com.uav_app.back_end.uav_manager.UavStateInterface;
 import com.uav_app.back_end.uav_manager.UavStateManager;
@@ -28,6 +29,7 @@ public class EventBroker {
         msgManager = MavlinkMsgManager.getMessageManager();
         stateManager = UavStateManager.getUavStateManager();
         connectManager.setReceiver(receiver);
+        msgManager.setReceiver(receiver);
         stateManager.setReceiver(receiver);
     }
 
@@ -83,7 +85,7 @@ public class EventBroker {
         void onEvent(Event event);
     }
 
-    private class EventReceiver implements UsbConnectInterface, UavStateInterface {
+    private class EventReceiver implements UsbConnectInterface, MavlinkMsgInterface, UavStateInterface {
         @Override
         public void onCanNotFoundDevice() {
             publishEvent(Event.USB_CANNOT_FOUND);
@@ -105,7 +107,7 @@ public class EventBroker {
         }
 
         @Override
-        public void onConnectSuccess() {
+        public void onConnectUsbSuccess() {
             publishEvent(Event.USB_CONNECT_SUCCESS);
             // 开始从USB串口接收消息
             connectManager.startReceiveMessage(data -> {
@@ -116,7 +118,7 @@ public class EventBroker {
         }
 
         @Override
-        public void onConnectFail(Exception e) {
+        public void onConnectUsbFail(Exception e) {
             publishEvent(Event.USB_CONNECT_FAIL);
         }
 
@@ -126,12 +128,13 @@ public class EventBroker {
         }
 
         @Override
-        public void onSendMessageError(Exception e) {
+        public void onSendUartError(Exception e) {
             publishEvent(Event.USB_IO_ERROR);
         }
 
         @Override
-        public void onStartReceiveMessage() {
+        public void onStartReceiveUart() {
+            // 开始从USB串口接收消息
             msgManager.startRecvMessage(data -> {
                 if (connectManager.isReceiving()) {
                     connectManager.sendSerialMessage(data);
@@ -140,12 +143,12 @@ public class EventBroker {
         }
 
         @Override
-        public void onStopReceiveMessage() {
+        public void onStopReceiveUart() {
             msgManager.stopRecvMessage();
         }
 
         @Override
-        public void onRecvMessageError(Exception e) {
+        public void onRecvUartError(Exception e) {
             publishEvent(Event.USB_IO_ERROR);
         }
 
@@ -162,6 +165,16 @@ public class EventBroker {
         @Override
         public void onAbnormalDisconnect() {
 
+        }
+
+        @Override
+        public void onSendUdpError(Exception e) {
+            publishEvent(Event.USB_IO_ERROR);
+        }
+
+        @Override
+        public void onRecvUdpError(Exception e) {
+            publishEvent(Event.USB_IO_ERROR);
         }
     }
 }

@@ -33,14 +33,14 @@ public interface UsbConnectInterface {
     /**
      * USB设备连接成功
      */
-    void onConnectSuccess();
+    void onConnectUsbSuccess();
 
     /**
      * USB设备连接失败
      *
      * @param e 失败原因
      */
-    void onConnectFail(Exception e);
+    void onConnectUsbFail(Exception e);
 
     /**
      * USB设备失去连接
@@ -52,22 +52,22 @@ public interface UsbConnectInterface {
      *
      * @param e 传入错误类型
      */
-    void onSendMessageError(Exception e);
+    void onSendUartError(Exception e);
 
     /**
      * 开始接收消息。
      */
-    void onStartReceiveMessage();
+    void onStartReceiveUart();
 
     /**
      * 停止接收消息。
      */
-    void onStopReceiveMessage();
+    void onStopReceiveUart();
 
     /**
      * 接收消息出现错误，此方法在子线程中执行。
      *
      * @param e 传入错误类型
      */
-    void onRecvMessageError(Exception e);
+    void onRecvUartError(Exception e);
 }

@@ -225,12 +225,12 @@ public class UsbConnectManager {
                 isConnect = true;
                 // 执行连接成功回调
                 if (receiver != null) {
-                    receiver.onConnectSuccess();
+                    receiver.onConnectUsbSuccess();
                 }
             } catch (IOException ioe) {
                 // 连接失败
                 if (receiver != null) {
-                    receiver.onConnectFail(ioe);
+                    receiver.onConnectUsbFail(ioe);
                 }
                 disconnect();
             }
@@ -342,7 +342,7 @@ public class UsbConnectManager {
                             mUsbSerialPort.write(list.get(0), 2000);
                         } catch (IOException e) {
                             if (receiver != null) {
-                                receiver.onSendMessageError(e);
+                                receiver.onSendUartError(e);
                             }
                         }
                         list.remove(0);
@@ -388,7 +388,7 @@ public class UsbConnectManager {
                             // 回调接收错误线程
                             if (UsbConnectManager.getConnectManager().isConnect()) {
                                 if (receiver != null) {
-                                    receiver.onRecvMessageError(e);
+                                    receiver.onRecvUartError(e);
                                 }
                             }
                             return;
@@ -408,7 +408,7 @@ public class UsbConnectManager {
                 });
                 receiveThread.start();
                 if (receiver != null) {
-                    receiver.onStartReceiveMessage();
+                    receiver.onStartReceiveUart();
                 }
             }
         }
@@ -427,7 +427,7 @@ public class UsbConnectManager {
             }
             receiveThread = null;
             if (receiver != null) {
-                receiver.onStopReceiveMessage();
+                receiver.onStopReceiveUart();
             }
         }
 

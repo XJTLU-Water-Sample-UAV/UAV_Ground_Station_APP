@@ -60,13 +60,13 @@ public class UIObserver implements UsbConnectInterface, UavStateInterface {
     }
 
     @Override
-    public void onConnectSuccess() {
+    public void onConnectUsbSuccess() {
         Toast.makeText(context, "数传连接成功", Toast.LENGTH_SHORT).show();
         stateMachine.switchState(UIStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
     }
 
     @Override
-    public void onConnectFail(Exception e) {
+    public void onConnectUsbFail(Exception e) {
         Toast.makeText(context, "数传连接失败，请检查是否被其他应用占用", Toast.LENGTH_SHORT).show();
     }
 
@@ -77,24 +77,24 @@ public class UIObserver implements UsbConnectInterface, UavStateInterface {
     }
 
     @Override
-    public void onSendMessageError(Exception e) {
+    public void onSendUartError(Exception e) {
         Looper.prepare();
         Toast.makeText(context, "飞控指令发送错误，请检查数传连接", Toast.LENGTH_SHORT).show();
         Looper.loop();
     }
 
     @Override
-    public void onStartReceiveMessage() {
+    public void onStartReceiveUart() {
 
     }
 
     @Override
-    public void onStopReceiveMessage() {
+    public void onStopReceiveUart() {
 
     }
 
     @Override
-    public void onRecvMessageError(Exception e) {
+    public void onRecvUartError(Exception e) {
         Looper.prepare();
         Toast.makeText(context, "飞控指令接收错误，请检查数传连接", Toast.LENGTH_SHORT).show();
         Looper.loop();

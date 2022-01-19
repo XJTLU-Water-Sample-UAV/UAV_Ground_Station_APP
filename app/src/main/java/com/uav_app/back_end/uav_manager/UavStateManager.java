@@ -50,9 +50,6 @@ public class UavStateManager {
     @SuppressLint("CheckResult")
     private UavStateManager() {
         this.uavState = UavState.UAV_NOT_CONNECT;
-        // 添加监听数传设备断联的观察者
-        UsbObserver usbObserver = new UsbObserver();
-        UsbConnectManager.getConnectManager().setReceiver(usbObserver);
         // 创建服务器后端
         MavsdkServer mavsdkServer = new MavsdkServer();
         int mavsdkServerPort = mavsdkServer.run("udp://:" + BACKEND_PORT);
@@ -151,58 +148,6 @@ public class UavStateManager {
         }
         // 将无人机连接状态设置为断开
         uavState = UavState.UAV_NOT_CONNECT;
-    }
-
-    private class UsbObserver implements UsbConnectInterface {
-        @Override
-        public void onCanNotFoundDevice() {
-        }
-
-        @Override
-        public void onCanNotFoundSpecifiedDevice() {
-        }
-
-        @Override
-        public void onFindMultipleDevices(List<UsbSerialDriver> driverList) {
-        }
-
-        @Override
-        public void onPermissionNotObtained() {
-        }
-
-        @Override
-        public void onConnectSuccess() {
-        }
-
-        @Override
-        public void onConnectFail(Exception e) {
-        }
-
-        @Override
-        public void onLoseConnectDevice() {
-            // 断开无人机连接
-            disconnectUav();
-        }
-
-        @Override
-        public void onSendMessageError(Exception e) {
-        }
-
-        @Override
-        public void onStartReceiveMessage() {
-            // 开始连接无人机
-            connectUav();
-        }
-
-        @Override
-        public void onStopReceiveMessage() {
-            // 断开无人机连接
-            disconnectUav();
-        }
-
-        @Override
-        public void onRecvMessageError(Exception e) {
-        }
     }
 
     /**
