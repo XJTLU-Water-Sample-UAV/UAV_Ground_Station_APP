@@ -18,7 +18,7 @@ public abstract class Manager {
         this.connector = connector;
     }
 
-    public int getLISTENER_ID() {
+    public int getListenerId() {
         return LISTENER_ID;
     }
 

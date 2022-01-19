@@ -26,7 +26,7 @@ public class MavsdkUdpClient {
         }
     }
 
-    public void sendUdpMessage(byte[] sendBytes) {
+    public void sendUdpMessage(byte[] sendBytes, MsgSendListener listener) {
         // 开启发送消息子线程
         new Thread(() -> {
             // 发送UDP消息
@@ -34,11 +34,12 @@ public class MavsdkUdpClient {
             try {
                 mSocket.send(clientPacket);
             } catch (IOException e) {
+                listener.onSendError(e);
             }
         }).start();
     }
 
-    public void startRecvUdpMessage(OnMsgReturnedListener listener) {
+    public void startRecvUdpMessage(MsgRecvListener listener) {
         if (isReceiving) {
             return;
         }
@@ -78,9 +79,13 @@ public class MavsdkUdpClient {
         return isReceiving;
     }
 
-    public interface OnMsgReturnedListener {
+    public interface MsgRecvListener {
         void onRecvMessage(byte[] msg);
 
         void onRecvError(Exception e);
+    }
+
+    public interface MsgSendListener {
+        void onSendError(Exception e);
     }
 }

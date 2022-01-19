@@ -274,7 +274,7 @@ public class UsbConnectManager {
     /**
      * 此方法用于开启接收消息的线程
      */
-    public void startReceiveMessage(UartObserver observer) {
+    public void startReceiveMessage(UartListener observer) {
         if (isConnect) {
             receivingThreadManager.startReceiveMessage(mUsbSerialPort, observer);
         }
@@ -371,7 +371,7 @@ public class UsbConnectManager {
          *
          * @param mUsbSerialPort USB串口管理对象
          */
-        public void startReceiveMessage(UsbSerialPort mUsbSerialPort, UartObserver observer) {
+        public void startReceiveMessage(UsbSerialPort mUsbSerialPort, UartListener observer) {
             if (receiveThread == null) {
                 receiveThread = new Thread(() -> {
                     // 初始化缓冲区
@@ -441,7 +441,7 @@ public class UsbConnectManager {
         }
     }
 
-    public interface UartObserver {
+    public interface UartListener {
         /**
          * 传入收到消息
          */
