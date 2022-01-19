@@ -23,12 +23,12 @@ public class UavStateManager {
     private final UavState uavState;
     // MAVSDK子栈列表
     private final List<Disposable> disposables = new ArrayList<>();
+    // 无人机系统后端对象
+    private final System drone;
     // 后端IP地址
     public static final String BACKEND_IP_ADDRESS = "127.0.0.1";
     // 服务器监听MAVLink消息的端口号
     public static final int BACKEND_PORT = 8000;
-    // 无人机系统后端对象
-    private final System drone;
 
     public static UavStateManager getUavStateManager() {
         if (uavStateManager == null) {
