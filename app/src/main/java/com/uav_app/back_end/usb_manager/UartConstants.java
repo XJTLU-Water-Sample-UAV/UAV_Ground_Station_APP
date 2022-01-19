@@ -1,7 +1,7 @@
 package com.uav_app.back_end.usb_manager;
 
-import com.uav_app.MyApplication;
 import com.tools.AccessParameter;
+import com.uav_app.MyApplication;
 
 import io.serial_port_driver.UsbSerialPort;
 

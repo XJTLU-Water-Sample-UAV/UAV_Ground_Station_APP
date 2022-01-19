@@ -49,6 +49,8 @@ public interface UsbConnectInterface {
 
     /**
      * 发送消息出现错误。
+     *
+     * @param e 传入错误类型
      */
     void onSendMessageError(Exception e);
 
@@ -64,11 +66,8 @@ public interface UsbConnectInterface {
 
     /**
      * 接收消息出现错误，此方法在子线程中执行。
+     *
+     * @param e 传入错误类型
      */
-    void onReceiveMessageError(Exception e);
-
-    /**
-     * 传入收到消息
-     */
-    void onIncomingMessage(byte[] data);
+    void onRecvMessageError(Exception e);
 }

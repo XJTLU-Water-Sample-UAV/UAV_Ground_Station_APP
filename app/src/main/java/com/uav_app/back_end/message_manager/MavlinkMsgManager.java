@@ -40,12 +40,14 @@ public class MavlinkMsgManager {
     /**
      * 开始接收UDP消息
      */
-    public void startRecvMessage() {
+    public void startRecvMessage(UdpObserver observer) {
         // UDP客户端开始接收消息
         udpClient.startRecvUdpMessage(new MavsdkUdpClient.OnMsgReturnedListener() {
             @Override
-            public void onRecvMessage(byte[] msg) {
-                udpToUart(msg);
+            public void onRecvMessage(byte[] data) {
+                if (data.length != 0) {
+                    observer.onIncomingMessage(data);
+                }
             }
 
             @Override
@@ -64,24 +66,24 @@ public class MavlinkMsgManager {
     }
 
     /**
-     * UDP消息转发至串口
-     *
-     * @param data 传入消息
-     */
-    private void udpToUart(byte[] data) {
-        if (data.length != 0 && connectManager.isReceiving()) {
-            connectManager.sendSerialMessage(data);
-        }
-    }
-
-    /**
      * 串口消息转发至UDP
      *
      * @param data 传入消息
      */
-    public void uartToUdp(byte[] data) {
+    public void sendUdpMessage(byte[] data) {
         if (data.length != 0 && udpClient.isReceiving()) {
             udpClient.sendUdpMessage(data);
         }
+    }
+
+    public boolean isReceiving() {
+        return udpClient.isReceiving();
+    }
+
+    public interface UdpObserver {
+        /**
+         * 传入收到消息
+         */
+        void onIncomingMessage(byte[] data);
     }
 }

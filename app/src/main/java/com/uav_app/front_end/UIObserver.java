@@ -94,14 +94,10 @@ public class UIObserver implements UsbConnectInterface, UavStateInterface {
     }
 
     @Override
-    public void onReceiveMessageError(Exception e) {
+    public void onRecvMessageError(Exception e) {
         Looper.prepare();
         Toast.makeText(context, "飞控指令接收错误，请检查数传连接", Toast.LENGTH_SHORT).show();
         Looper.loop();
-    }
-
-    @Override
-    public void onIncomingMessage(byte[] data) {
     }
 
     @Override

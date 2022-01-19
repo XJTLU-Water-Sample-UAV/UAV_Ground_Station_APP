@@ -227,8 +227,6 @@ public class UsbConnectManager {
                 if (receiver != null) {
                     receiver.onConnectSuccess();
                 }
-                // 开始接收消息
-                startReceiveMessage();
             } catch (IOException ioe) {
                 // 连接失败
                 if (receiver != null) {
@@ -276,9 +274,9 @@ public class UsbConnectManager {
     /**
      * 此方法用于开启接收消息的线程
      */
-    public void startReceiveMessage() {
+    public void startReceiveMessage(UartObserver observer) {
         if (isConnect) {
-            receivingThreadManager.startReceiveMessage(mUsbSerialPort);
+            receivingThreadManager.startReceiveMessage(mUsbSerialPort, observer);
         }
     }
 
@@ -373,7 +371,7 @@ public class UsbConnectManager {
          *
          * @param mUsbSerialPort USB串口管理对象
          */
-        public void startReceiveMessage(UsbSerialPort mUsbSerialPort) {
+        public void startReceiveMessage(UsbSerialPort mUsbSerialPort, UartObserver observer) {
             if (receiveThread == null) {
                 receiveThread = new Thread(() -> {
                     // 初始化缓冲区
@@ -390,7 +388,7 @@ public class UsbConnectManager {
                             // 回调接收错误线程
                             if (UsbConnectManager.getConnectManager().isConnect()) {
                                 if (receiver != null) {
-                                    receiver.onReceiveMessageError(e);
+                                    receiver.onRecvMessageError(e);
                                 }
                             }
                             return;
@@ -402,7 +400,7 @@ public class UsbConnectManager {
                         // 解析消息
                         if (UsbConnectManager.getConnectManager().isConnect()) {
                             if (receiver != null) {
-                                receiver.onIncomingMessage(result);
+                                observer.onIncomingMessage(result);
                             }
                         }
                         Arrays.fill(data, (byte) 0);
@@ -441,5 +439,12 @@ public class UsbConnectManager {
         public boolean isReceiving() {
             return receiveThread != null && receiveThread.isAlive();
         }
+    }
+
+    public interface UartObserver {
+        /**
+         * 传入收到消息
+         */
+        void onIncomingMessage(byte[] data);
     }
 }

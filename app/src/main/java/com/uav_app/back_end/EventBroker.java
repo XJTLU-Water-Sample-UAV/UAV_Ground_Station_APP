@@ -107,6 +107,12 @@ public class EventBroker {
         @Override
         public void onConnectSuccess() {
             publishEvent(Event.USB_CONNECT_SUCCESS);
+            // 开始从USB串口接收消息
+            connectManager.startReceiveMessage(data -> {
+                if (msgManager.isReceiving()) {
+                    msgManager.sendUdpMessage(data);
+                }
+            });
         }
 
         @Override
@@ -126,7 +132,11 @@ public class EventBroker {
 
         @Override
         public void onStartReceiveMessage() {
-            msgManager.startRecvMessage();
+            msgManager.startRecvMessage(data -> {
+                if (connectManager.isReceiving()) {
+                    connectManager.sendSerialMessage(data);
+                }
+            });
         }
 
         @Override
@@ -135,13 +145,8 @@ public class EventBroker {
         }
 
         @Override
-        public void onReceiveMessageError(Exception e) {
+        public void onRecvMessageError(Exception e) {
             publishEvent(Event.USB_IO_ERROR);
-        }
-
-        @Override
-        public void onIncomingMessage(byte[] data) {
-            msgManager.uartToUdp(data);
         }
 
         @Override
