@@ -35,7 +35,7 @@ public class UsbConnectManager {
     private UsbDevice mUsbDevice;
     // USB设备连接管理
     private UsbDeviceConnection mDeviceConnection;
-    // USB串口设备连接管理
+    // USB串口设备连接管理驱动
     private UsbSerialDriver driver;
     // 串口通信管理
     private UsbSerialPort mUsbSerialPort;

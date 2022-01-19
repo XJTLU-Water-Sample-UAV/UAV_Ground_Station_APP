@@ -57,7 +57,7 @@ public class WaitView extends ChildView implements MapActivityState.StateChangeL
         } else {
             selectButton.setText(R.string.selectButtonText);
         }
-        if (mapActivityState.waitViewState.isUavUnlocked) {
+        if (mapActivityState.waitViewState.isUavArmed) {
             unlockButton.setText(R.string.takeoffButtonText);
             unlockButton.setEnabled(mapActivityState.waitViewState.isPointSelected);
         } else {

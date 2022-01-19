@@ -3,6 +3,7 @@ package com.uav_app.front_end.map_activity;
 import com.amap.api.maps.model.Marker;
 import com.uav_app.back_end.uav_manager.nav_point.NavPointManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
+import com.uav_app.front_end.OperationStateMachine;
 import com.uav_app.front_end.map_activity.managers.TabManager;
 
 import java.util.ArrayList;
@@ -40,6 +41,67 @@ public class MapActivityState {
         waitViewState = new TabViewState.WaitViewState();
         pointManager = new NavPointManager();
         listenerMap = new HashMap<>();
+    }
+
+    public void refreshState(OperationStateMachine.State state) {
+        switch (state) {
+            case STATE_USB_UNCONNECTED:
+                tabViewState.tabState = TabManager.TabState.VIEW_USB_UNCONNECTED;
+                waitViewState.isPointSelected = false;
+                waitViewState.isUavArmed = false;
+                mapViewState.isCanBeSelect = false;
+                mapViewState.markerList.clear();
+                pointManager.deleteAll();
+                break;
+
+            case STATE_UAV_UNCONNECTED:
+                tabViewState.tabState = TabManager.TabState.VIEW_UAV_UNCONNECTED;
+                waitViewState.isPointSelected = false;
+                waitViewState.isUavArmed = false;
+                mapViewState.isCanBeSelect = false;
+                mapViewState.markerList.clear();
+                pointManager.deleteAll();
+                break;
+
+            case STATE_WAIT_TO_SELECT_POINT:
+                tabViewState.tabState = TabManager.TabState.VIEW_WAIT;
+                waitViewState.isPointSelected = false;
+                mapViewState.isCanBeSelect = false;
+                mapViewState.markerList.clear();
+                pointManager.deleteAll();
+                break;
+
+            case STATE_ON_SELECT:
+                tabViewState.tabState = TabManager.TabState.VIEW_SELECT;
+                waitViewState.isPointSelected = false;
+                mapViewState.isCanBeSelect = true;
+                mapViewState.markerList.clear();
+                pointManager.deleteAll();
+                break;
+
+            case STATE_FINISH_SELECT_POINT:
+                tabViewState.tabState = TabManager.TabState.VIEW_WAIT;
+                waitViewState.isPointSelected = true;
+                mapViewState.isCanBeSelect = false;
+                break;
+
+            case STATE_UAV_ARMED:
+                tabViewState.tabState = TabManager.TabState.VIEW_WAIT;
+                waitViewState.isPointSelected = true;
+                waitViewState.isUavArmed = true;
+                mapViewState.isCanBeSelect = false;
+                mapViewState.markerList.clear();
+                pointManager.deleteAll();
+                break;
+
+            case STATE_UAV_FLIGHT:
+                tabViewState.tabState = TabManager.TabState.VIEW_FLIGHT;
+                waitViewState.isPointSelected = true;
+                waitViewState.isUavArmed = false;
+                mapViewState.isCanBeSelect = false;
+                break;
+        }
+        applyChange();
     }
 
     public void applyChange() {
@@ -84,7 +146,7 @@ public class MapActivityState {
             // 是否已经完成选点
             public boolean isPointSelected = false;
             // 是否已经解锁无人机
-            public boolean isUavUnlocked = false;
+            public boolean isUavArmed = false;
         }
     }
 
