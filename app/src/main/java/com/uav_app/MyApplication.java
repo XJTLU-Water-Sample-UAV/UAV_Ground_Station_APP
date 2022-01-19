@@ -3,15 +3,12 @@ package com.uav_app;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
-import android.content.IntentFilter;
-import android.hardware.usb.UsbManager;
 
+import com.uav_app.back_end.EventBroker;
 import com.uav_app.back_end.message_manager.MavlinkMsgManager;
 import com.uav_app.back_end.uav_manager.UavStateManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
-import com.uav_app.back_end.usb_manager.UsbStateReceiver;
 import com.uav_app.front_end.UIStateMachine;
-import com.uav_app.front_end.UIObserver;
 import com.uav_app.front_end.map_activity.MapActivityState;
 
 public class MyApplication extends Application {
@@ -19,31 +16,23 @@ public class MyApplication extends Application {
     @SuppressLint("StaticFieldLeak")
     private static MyApplication mApp;
     // 全局Context对象
-    private Context context;
+    private static Context context;
 
     @Override
     public void onCreate() {
         super.onCreate();
         // 初始化context对象
         context = getApplicationContext();
-        // 构建UI控件监听器对象
-        UIObserver observer = UIObserver.getUIObserver();
-        // 初始化Mavlink和USB管理对象
-        UsbConnectManager connectManager = UsbConnectManager.getConnectManager();
+        // 初始化USB管理对象
+        UsbConnectManager.getConnectManager();
+        // 初始化Mavlink对象
         MavlinkMsgManager.getMessageManager();
+        // 初始化无人机管理对象
+        UavStateManager.getUavStateManager();
+        // 获取事件代理对象
+        EventBroker.getBroker();
         UIStateMachine.getOperationStateMachine();
         MapActivityState.getMapActivityState();
-        // 初始USB化广播
-        UsbStateReceiver mUsbStateReceiver = new UsbStateReceiver(connectManager);
-        IntentFilter usbDeviceStateFilter = new IntentFilter();
-        usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
-        usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
-        context.registerReceiver(mUsbStateReceiver, usbDeviceStateFilter);
-        // 初始化无人机管理对象
-        UavStateManager uavStateManager = UavStateManager.getUavStateManager();
-        // 添加UI控件监听器
-        connectManager.setReceiver(observer);
-        uavStateManager.addObserver(observer);
     }
 
     /**
@@ -70,7 +59,7 @@ public class MyApplication extends Application {
      *
      * @return 全局Context
      */
-    public Context getContext() {
+    public static Context getContext() {
         return context;
     }
 }

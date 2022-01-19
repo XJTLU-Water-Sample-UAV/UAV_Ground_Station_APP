@@ -51,6 +51,12 @@ public class UsbConnectManager {
     private UsbConnectManager() {
         this.sendingThreadManager = new SendingThreadManager();
         this.receivingThreadManager = new ReceivingThreadManager();
+        // 初始化USB插拔事件广播
+        UsbStateReceiver mUsbStateReceiver = new UsbStateReceiver(this);
+        IntentFilter usbDeviceStateFilter = new IntentFilter();
+        usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+        usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
+        MyApplication.getContext().registerReceiver(mUsbStateReceiver, usbDeviceStateFilter);
     }
 
     /**
@@ -86,8 +92,7 @@ public class UsbConnectManager {
             return;
         }
         // 获取负责管理USB设备的类
-        manager = (UsbManager) MyApplication.getApplication().getContext()
-                .getSystemService(Context.USB_SERVICE);
+        manager = (UsbManager) MyApplication.getContext().getSystemService(Context.USB_SERVICE);
         // 获取可用的USB串口设备列表
         UsbSerialProber serialProber = UsbSerialProber.getDefaultProber();
         List<UsbSerialDriver> driverList = serialProber.findAllDrivers(manager);
@@ -122,8 +127,7 @@ public class UsbConnectManager {
             return;
         }
         // 获取负责管理USB设备的类
-        manager = (UsbManager) MyApplication.getApplication().getContext()
-                .getSystemService(Context.USB_SERVICE);
+        manager = (UsbManager) MyApplication.getContext().getSystemService(Context.USB_SERVICE);
         // 获取可用的USB串口设备列表
         UsbSerialProber serialProber = UsbSerialProber.getDefaultProber();
         List<UsbSerialDriver> driverList = serialProber.findAllDrivers(manager);
@@ -195,9 +199,9 @@ public class UsbConnectManager {
         // 向接收器添加USB设备连接和断连广播
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
-        MyApplication.getApplication().getContext().registerReceiver(mUsbPermissionReceiver, filter);
+        MyApplication.getContext().registerReceiver(mUsbPermissionReceiver, filter);
         // 获取设备访问权限
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(MyApplication.getApplication().getContext(),
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(MyApplication.getContext(),
                 0, new Intent(ACTION_USB_PERMISSION), 0);
         manager.requestPermission(mUSBDevice, pendingIntent);
     }

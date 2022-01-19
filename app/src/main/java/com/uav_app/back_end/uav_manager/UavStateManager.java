@@ -24,7 +24,7 @@ public class UavStateManager {
     // 本类单例对象
     private volatile static UavStateManager uavStateManager;
     // 观察者对象列表
-    private final ArrayList<UavStateInterface> observerList;
+    private UavStateInterface receiver;
     // 无人机状态
     private UavState uavState;
     // MAVSDK子栈列表
@@ -50,7 +50,6 @@ public class UavStateManager {
     @SuppressLint("CheckResult")
     private UavStateManager() {
         this.uavState = UavState.UAV_NOT_CONNECT;
-        this.observerList = new ArrayList<>();
         // 添加监听数传设备断联的观察者
         UsbObserver usbObserver = new UsbObserver();
         UsbConnectManager.getConnectManager().setReceiver(usbObserver);
@@ -93,10 +92,10 @@ public class UavStateManager {
     /**
      * 添加USB事件的监听器
      *
-     * @param stateInterface 监听器对象
+     * @param receiver 监听器对象
      */
-    public void addObserver(UavStateInterface stateInterface) {
-        observerList.add(stateInterface);
+    public void setReceiver(UavStateInterface receiver) {
+        this.receiver = receiver;
     }
 
     /**
@@ -141,15 +140,13 @@ public class UavStateManager {
             return;
         } else if (uavState == UavState.UAV_MISSION_ACCOMPLISHED) {
             // 回调无人机正常断开连接函数
-            for (int i = 0; i < observerList.size(); i++) {
-                UavStateInterface stateInterface = observerList.get(i);
-                stateInterface.onNormalDisconnect();
+            if (receiver != null) {
+                receiver.onNormalDisconnect();
             }
         } else {
             // 回调无人机非正常断开连接函数
-            for (int i = 0; i < observerList.size(); i++) {
-                UavStateInterface stateInterface = observerList.get(i);
-                stateInterface.onAbnormalDisconnect();
+            if (receiver != null) {
+                receiver.onAbnormalDisconnect();
             }
         }
         // 将无人机连接状态设置为断开

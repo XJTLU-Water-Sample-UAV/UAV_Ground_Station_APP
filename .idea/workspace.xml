@@ -16,17 +16,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/MyApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/EventBroker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/EventBroker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/message_manager/MavlinkMsgManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/message_manager/MavlinkMsgManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/uav_manager/UavState.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/uav_manager/UavState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/uav_manager/UavStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/uav_manager/UavStateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/usb_manager/UsbConnectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/usb_manager/UsbConnectManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/usb_manager/UsbPermissionReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/usb_manager/UsbPermissionReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/UiObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/UIObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/UiStateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/UIStateMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/SelectView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/SelectView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/UavUnconnectedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/UavUnconnectedView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/UsbUnconnectedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/UsbUnconnectedView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/WaitView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/WaitView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +50,8 @@
         <option value="valueResourceFile" />
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -327,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642480480671</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="1.18">
+      <created>1642485909737</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1642485909737</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

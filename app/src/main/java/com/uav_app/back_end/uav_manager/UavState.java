@@ -8,7 +8,7 @@ public enum UavState {
     UAV_NOT_CONNECT,
     // 无人机状态就绪
     UAV_STANDING_BY,
-    // 起飞
+    // 起飞中
     UAV_TAKE_OFF,
     // 正在前往取样点
     UAV_ROUTING,
