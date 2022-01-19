@@ -21,7 +21,7 @@ public class UsbUnconnectedView extends ChildView {
         button = findViewById(R.id.usbButton);
         button.setOnClickListener(v -> {
             UsbConnectManager.getConnectManager().connectDevice();
-            OperationStateMachine.getOperationStateMachine().switchState(OperationStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
+            OperationStateMachine.getOperationStateMachine().nextState(OperationStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
         });
     }
 

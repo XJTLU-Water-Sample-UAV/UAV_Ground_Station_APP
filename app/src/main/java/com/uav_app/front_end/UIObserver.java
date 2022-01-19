@@ -54,7 +54,7 @@ public class UIObserver implements EventBroker.EventObserver {
 
             case USB_CONNECT_SUCCESS:
                 Toast.makeText(context, "数传连接成功", Toast.LENGTH_SHORT).show();
-                stateMachine.switchState(OperationStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
+                stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_USB_CONNECT);
                 break;
 
             case USB_CONNECT_FAIL:
@@ -63,7 +63,7 @@ public class UIObserver implements EventBroker.EventObserver {
 
             case USB_LOSE:
                 Toast.makeText(context, "数传断开连接", Toast.LENGTH_SHORT).show();
-                stateMachine.switchState(OperationStateMachine.SwitchCondition.CONDITION_USB_LOSE);
+                stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_USB_LOSE);
                 break;
 
             case USB_IO_ERROR:

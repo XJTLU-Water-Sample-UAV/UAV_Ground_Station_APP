@@ -15,7 +15,7 @@ public class UavUnconnectedView extends ChildView {
         super(context, tabManager);
         LayoutInflater.from(context).inflate(R.layout.mode_uav_unconnect, this);
         Button button = findViewById(R.id.connectButton);
-        button.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine().switchState(
+        button.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine().nextState(
                 OperationStateMachine.SwitchCondition.CONDITION_UAV_CONNECT));
     }
 }

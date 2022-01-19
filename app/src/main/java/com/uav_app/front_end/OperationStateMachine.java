@@ -31,7 +31,7 @@ public class OperationStateMachine {
         this.mapActivityState = MapActivityState.getMapActivityState();
     }
 
-    public void switchState(SwitchCondition condition) {
+    public void nextState(SwitchCondition condition) {
         switch (state) {
             // USB没有连接
             case STATE_USB_UNCONNECTED:
@@ -39,7 +39,6 @@ public class OperationStateMachine {
                     state = State.STATE_UAV_UNCONNECTED;
                     // 连上数传设备
                     mapActivityState.tabViewState.tabState = TabManager.TabState.VIEW_UAV_UNCONNECTED;
-
                 }
                 break;
 

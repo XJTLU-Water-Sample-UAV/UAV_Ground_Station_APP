@@ -45,7 +45,7 @@ public class SelectView extends ChildView {
             }
         });
         cancelButton.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine()
-                .switchState(OperationStateMachine.SwitchCondition.CONDITION_ON_CLICK_CANCEL));
+                .nextState(OperationStateMachine.SwitchCondition.CONDITION_ON_CLICK_CANCEL));
         sendButton.setOnClickListener(v -> {
             // 判断是否没有选点
             if (MapActivityState.getMapActivityState().pointManager.getPointNum() == 0) {
@@ -56,7 +56,7 @@ public class SelectView extends ChildView {
                 // UavStateManager.getUavStateManager().connectUav();
                 Toast.makeText(context, "发送成功", Toast.LENGTH_SHORT).show();
             }
-            OperationStateMachine.getOperationStateMachine().switchState(OperationStateMachine
+            OperationStateMachine.getOperationStateMachine().nextState(OperationStateMachine
                     .SwitchCondition.CONDITION_ON_CLICK_CONFIRM);
         });
         // 设置选点列表适配器
