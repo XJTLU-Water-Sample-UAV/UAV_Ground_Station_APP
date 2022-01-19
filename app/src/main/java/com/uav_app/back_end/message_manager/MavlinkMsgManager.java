@@ -1,12 +1,7 @@
 package com.uav_app.back_end.message_manager;
 
 import com.uav_app.back_end.uav_manager.UavStateManager;
-import com.uav_app.back_end.usb_manager.UsbConnectInterface;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
-
-import java.util.List;
-
-import io.serial_port_driver.UsbSerialDriver;
 
 /**
  * 本类用于管理应用程序与无人机的通信。
@@ -37,10 +32,7 @@ public class MavlinkMsgManager {
      * 构造函数，初始化必要变量
      */
     private MavlinkMsgManager() {
-        // 添加监听数传设备消息的观察者
-        MavlinkObserver observer = new MavlinkObserver();
         connectManager = UsbConnectManager.getConnectManager();
-        connectManager.setReceiver(observer);
         // 创建客户端
         udpClient = new MavsdkUdpClient(UavStateManager.BACKEND_IP_ADDRESS, UavStateManager.BACKEND_PORT, 6000);
     }
@@ -48,7 +40,7 @@ public class MavlinkMsgManager {
     /**
      * 开始接收UDP消息
      */
-    private void startRecvMessage() {
+    public void startRecvMessage() {
         // UDP客户端开始接收消息
         udpClient.startRecvUdpMessage(new MavsdkUdpClient.OnMsgReturnedListener() {
             @Override
@@ -66,7 +58,7 @@ public class MavlinkMsgManager {
     /**
      * 结束接收UDP消息
      */
-    private void stopRecvMessage() {
+    public void stopRecvMessage() {
         // UDP客户端停止接收消息
         udpClient.stopRecvUdpMessage();
     }
@@ -87,62 +79,9 @@ public class MavlinkMsgManager {
      *
      * @param data 传入消息
      */
-    private void uartToUdp(byte[] data) {
+    public void uartToUdp(byte[] data) {
         if (data.length != 0 && udpClient.isReceiving()) {
             udpClient.sendUdpMessage(data);
-        }
-    }
-
-    private class MavlinkObserver implements UsbConnectInterface {
-        @Override
-        public void onCanNotFoundDevice() {
-        }
-
-        @Override
-        public void onCanNotFoundSpecifiedDevice() {
-        }
-
-        @Override
-        public void onFindMultipleDevices(List<UsbSerialDriver> driverList) {
-        }
-
-        @Override
-        public void onPermissionNotObtained() {
-        }
-
-        @Override
-        public void onConnectSuccess() {
-        }
-
-        @Override
-        public void onConnectFail(Exception e) {
-        }
-
-        @Override
-        public void onLoseConnectDevice() {
-        }
-
-        @Override
-        public void onSendMessageError(Exception e) {
-        }
-
-        @Override
-        public void onStartReceiveMessage() {
-            startRecvMessage();
-        }
-
-        @Override
-        public void onStopReceiveMessage() {
-            stopRecvMessage();
-        }
-
-        @Override
-        public void onReceiveMessageError(Exception e) {
-        }
-
-        @Override
-        public void onIncomingMessage(byte[] data) {
-            uartToUdp(data);
         }
     }
 }

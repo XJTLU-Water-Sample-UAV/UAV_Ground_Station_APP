@@ -112,11 +112,6 @@ public class UIObserver implements UsbConnectInterface, UavStateInterface {
     }
 
     @Override
-    public void onUavSignalBad() {
-        Toast.makeText(context, "无人机信号差", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void onNormalDisconnect() {
         Toast.makeText(context, "无人机断开连接成功", Toast.LENGTH_SHORT).show();
     }
