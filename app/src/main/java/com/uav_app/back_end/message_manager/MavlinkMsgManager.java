@@ -1,6 +1,5 @@
 package com.uav_app.back_end.message_manager;
 
-import com.uav_app.back_end.uav_manager.UavStateInterface;
 import com.uav_app.back_end.uav_manager.UavStateManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
 

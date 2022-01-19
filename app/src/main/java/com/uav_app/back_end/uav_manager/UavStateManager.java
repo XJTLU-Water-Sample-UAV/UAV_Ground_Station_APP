@@ -6,8 +6,6 @@ import android.widget.Toast;
 
 import com.amap.api.maps.model.LatLng;
 import com.uav_app.MyApplication;
-import com.uav_app.back_end.usb_manager.UsbConnectInterface;
-import com.uav_app.back_end.usb_manager.UsbConnectManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +13,6 @@ import java.util.List;
 import io.mavsdk.System;
 import io.mavsdk.mavsdkserver.MavsdkServer;
 import io.reactivex.disposables.Disposable;
-import io.serial_port_driver.UsbSerialDriver;
 
 /**
  * 本类用于管理和控制无人机的状态

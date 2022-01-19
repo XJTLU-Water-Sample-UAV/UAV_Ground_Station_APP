@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.widget.Button;
 
 import com.uav_app.back_end.uav_manager.R;
-import com.uav_app.front_end.UIStateMachine;
+import com.uav_app.front_end.OperationStateMachine;
 import com.uav_app.front_end.map_activity.managers.TabManager;
 
 @SuppressLint("ViewConstructor")
@@ -15,7 +15,7 @@ public class UavUnconnectedView extends ChildView {
         super(context, tabManager);
         LayoutInflater.from(context).inflate(R.layout.mode_uav_unconnect, this);
         Button button = findViewById(R.id.connectButton);
-        button.setOnClickListener(v -> UIStateMachine.getOperationStateMachine().switchState(
-                UIStateMachine.SwitchCondition.CONDITION_UAV_CONNECT));
+        button.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine().switchState(
+                OperationStateMachine.SwitchCondition.CONDITION_UAV_CONNECT));
     }
 }

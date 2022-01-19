@@ -8,7 +8,8 @@ import com.uav_app.back_end.EventBroker;
 import com.uav_app.back_end.message_manager.MavlinkMsgManager;
 import com.uav_app.back_end.uav_manager.UavStateManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
-import com.uav_app.front_end.UIStateMachine;
+import com.uav_app.front_end.OperationStateMachine;
+import com.uav_app.front_end.UIObserver;
 import com.uav_app.front_end.map_activity.MapActivityState;
 
 public class MyApplication extends Application {
@@ -30,8 +31,8 @@ public class MyApplication extends Application {
         // 初始化无人机管理对象
         UavStateManager.getUavStateManager();
         // 获取事件代理对象
-        EventBroker.getBroker();
-        UIStateMachine.getOperationStateMachine();
+        EventBroker.getBroker().subscribe(UIObserver.getUIObserver());
+        OperationStateMachine.getOperationStateMachine();
         MapActivityState.getMapActivityState();
     }
 
