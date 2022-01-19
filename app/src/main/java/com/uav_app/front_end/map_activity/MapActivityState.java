@@ -66,6 +66,7 @@ public class MapActivityState {
             case STATE_WAIT_TO_SELECT_POINT:
                 tabViewState.tabState = TabManager.TabState.VIEW_WAIT;
                 waitViewState.isPointSelected = false;
+                waitViewState.isUavArmed = false;
                 mapViewState.isCanBeSelect = false;
                 mapViewState.markerList.clear();
                 pointManager.deleteAll();
@@ -74,6 +75,7 @@ public class MapActivityState {
             case STATE_ON_SELECT:
                 tabViewState.tabState = TabManager.TabState.VIEW_SELECT;
                 waitViewState.isPointSelected = false;
+                waitViewState.isUavArmed = false;
                 mapViewState.isCanBeSelect = true;
                 mapViewState.markerList.clear();
                 pointManager.deleteAll();
@@ -82,6 +84,7 @@ public class MapActivityState {
             case STATE_FINISH_SELECT_POINT:
                 tabViewState.tabState = TabManager.TabState.VIEW_WAIT;
                 waitViewState.isPointSelected = true;
+                waitViewState.isUavArmed = false;
                 mapViewState.isCanBeSelect = false;
                 break;
 
@@ -90,14 +93,12 @@ public class MapActivityState {
                 waitViewState.isPointSelected = true;
                 waitViewState.isUavArmed = true;
                 mapViewState.isCanBeSelect = false;
-                mapViewState.markerList.clear();
-                pointManager.deleteAll();
                 break;
 
             case STATE_UAV_FLIGHT:
                 tabViewState.tabState = TabManager.TabState.VIEW_FLIGHT;
                 waitViewState.isPointSelected = true;
-                waitViewState.isUavArmed = false;
+                waitViewState.isUavArmed = true;
                 mapViewState.isCanBeSelect = false;
                 break;
         }

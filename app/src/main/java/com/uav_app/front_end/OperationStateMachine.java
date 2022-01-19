@@ -63,21 +63,29 @@ public class OperationStateMachine {
                 } else if (condition == SwitchCondition.CONDITION_UAV_LOSE) {
                     state = State.STATE_UAV_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_ON_CLICK_CONFIRM) {
-                    state = State.STATE_WAIT_TO_SELECT_POINT;
+                    state = State.STATE_FINISH_SELECT_POINT;
                 } else if (condition == SwitchCondition.CONDITION_ON_CLICK_CANCEL) {
                     state = State.STATE_WAIT_TO_SELECT_POINT;
                 }
                 break;
 
             case STATE_FINISH_SELECT_POINT:
-                if (condition == SwitchCondition.CONDITION_UAV_ARMED) {
+                if (condition == SwitchCondition.CONDITION_USB_LOSE) {
+                    state = State.STATE_USB_UNCONNECTED;
+                } else if (condition == SwitchCondition.CONDITION_UAV_LOSE) {
+                    state = State.STATE_UAV_UNCONNECTED;
+                } else if (condition == SwitchCondition.CONDITION_UAV_ARMED) {
                     state = State.STATE_UAV_ARMED;
+                } else if (condition == SwitchCondition.CONDITION_ON_CLICK_SELECT) {
+                    state = State.STATE_ON_SELECT;
                 }
                 break;
 
             case STATE_UAV_ARMED:
                 if (condition == SwitchCondition.CONDITION_UAV_TAKEOFF) {
                     state = State.STATE_UAV_FLIGHT;
+                } else if (condition == SwitchCondition.CONDITION_UAV_DISARMED) {
+                    state = State.STATE_FINISH_SELECT_POINT;
                 }
                 break;
 
@@ -110,6 +118,7 @@ public class OperationStateMachine {
         CONDITION_ON_CLICK_CONFIRM,
         CONDITION_ON_CLICK_CANCEL,
         CONDITION_UAV_ARMED,
+        CONDITION_UAV_DISARMED,
         CONDITION_UAV_TAKEOFF,
         CONDITION_USB_LOSE,
         CONDITION_UAV_LOSE
