@@ -90,13 +90,6 @@ public class UavStateManager {
         return uavState;
     }
 
-    /**
-     * 尝试连接无人机，连接结果将异步返回
-     */
-    public void connectUav() {
-
-    }
-
     public void unlockUav() {
         drone.getAction().arm().onErrorComplete().subscribe();
 //        drone.getCamera().takePhoto().subscribe();

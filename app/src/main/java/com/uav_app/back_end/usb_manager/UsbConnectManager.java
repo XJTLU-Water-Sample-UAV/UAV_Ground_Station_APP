@@ -2,6 +2,7 @@ package com.uav_app.back_end.usb_manager;
 
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -52,11 +53,23 @@ public class UsbConnectManager {
         this.sendingThreadManager = new SendingThreadManager();
         this.receivingThreadManager = new ReceivingThreadManager();
         // 初始化USB插拔事件广播
-        UsbStateReceiver mUsbStateReceiver = new UsbStateReceiver(this);
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
+                    // 拔出usb
+                    disconnect();
+                } else if (UsbManager.ACTION_USB_DEVICE_ATTACHED.equals(action)) {
+                    // 插入usb
+                    connectDevice();
+                }
+            }
+        };
         IntentFilter usbDeviceStateFilter = new IntentFilter();
         usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
-        MyApplication.getContext().registerReceiver(mUsbStateReceiver, usbDeviceStateFilter);
+        MyApplication.getContext().registerReceiver(receiver, usbDeviceStateFilter);
     }
 
     /**
@@ -176,30 +189,37 @@ public class UsbConnectManager {
      */
     private void getUsbPermission(UsbDevice mUSBDevice) {
         // 初始化USB权限更改时接收的广播
-        UsbPermissionReceiver mUsbPermissionReceiver = new UsbPermissionReceiver(mUsbDevice,
-                new UsbPermissionReceiver.PermissionObserver() {
-                    @Override
-                    public void onPermissionObtained(int vendorId, int productId) {
-                        // 授权成功，连接USB设备
-                        connectManager.connectSpecifiedDevice(vendorId, productId);
-                    }
-
-                    @Override
-                    public void onPermissionNotObtained() {
-                        // 用户点击拒绝，授权失败
-                        if (receiver != null) {
-                            receiver.onPermissionNotObtained();
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                // USB权限常数
+                String ACTION_USB_PERMISSION = "com.android.usb.USB_PERMISSION";
+                if (ACTION_USB_PERMISSION.equals(action)) {
+                    synchronized (this) {
+                        // 取消注册广播接收器
+                        context.unregisterReceiver(this);
+                        // 获得被授权的设备
+                        UsbDevice device = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+                        if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)
+                                && mUsbDevice.equals(device)) {
+                            // 授权成功，连接USB设备
+                            connectSpecifiedDevice(device.getVendorId(), device.getProductId());
+                        } else {
+                            // 用户点击拒绝，授权失败
+                            disconnect();
                         }
-                        connectManager.disconnect();
                     }
-                });
+                }
+            }
+        };
         // 注册广播接收器
         String ACTION_USB_PERMISSION = "com.android.usb.USB_PERMISSION";
         IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
         // 向接收器添加USB设备连接和断连广播
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
-        MyApplication.getContext().registerReceiver(mUsbPermissionReceiver, filter);
+        MyApplication.getContext().registerReceiver(receiver, filter);
         // 获取设备访问权限
         @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getBroadcast(MyApplication.getContext(),
                 0, new Intent(ACTION_USB_PERMISSION), 0);
