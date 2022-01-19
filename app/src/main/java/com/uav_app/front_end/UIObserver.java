@@ -71,8 +71,6 @@ public class UIObserver implements EventBroker.EventObserver {
                 Toast.makeText(context, "数据收发异常，请检查数传连接", Toast.LENGTH_SHORT).show();
                 Looper.loop();
                 break;
-
-
         }
     }
 }
