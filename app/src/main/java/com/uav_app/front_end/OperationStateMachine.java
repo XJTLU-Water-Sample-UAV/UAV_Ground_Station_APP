@@ -4,6 +4,9 @@ import com.uav_app.back_end.usb_manager.UsbConnectManager;
 import com.uav_app.front_end.map_activity.MapActivityState;
 import com.uav_app.front_end.map_activity.managers.TabManager;
 
+/*
+ * 用于管理UI跳转的摩尔型FSM
+ **/
 public class OperationStateMachine {
     // 本类单例对象
     private static OperationStateMachine stateMachine;

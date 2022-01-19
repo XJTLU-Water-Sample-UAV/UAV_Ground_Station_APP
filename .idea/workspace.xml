@@ -13,16 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a99d7a6d-03e2-4e5b-b98d-e3486feb5af0" name="Default Changelist" comment="1.19">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/menu_activity/MenuActivityState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/MyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/message_manager/MavlinkMsgManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/message_manager/MavlinkMsgManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/uav_manager/UavStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/back_end/uav_manager/UavStateManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/UIObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/UIObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/UIStateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/OperationStateMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/SelectView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/SelectView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/UavUnconnectedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/UavUnconnectedView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/UsbUnconnectedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/UsbUnconnectedView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/WaitView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/child_view/tab_child/WaitView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/OperationStateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/OperationStateMachine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -358,7 +351,21 @@
       <option name="project" value="LOCAL" />
       <updated>1642570803628</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="1.19">
+      <created>1642571536312</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1642571536312</updated>
+    </task>
+    <task id="LOCAL-00020" summary="1.19">
+      <created>1642571637675</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1642571637675</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

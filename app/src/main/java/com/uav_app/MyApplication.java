@@ -32,8 +32,6 @@ public class MyApplication extends Application {
         UavStateManager.getUavStateManager();
         // 获取事件代理对象
         EventBroker.getBroker().subscribe(UIObserver.getUIObserver());
-        OperationStateMachine.getOperationStateMachine();
-        MapActivityState.getMapActivityState();
     }
 
     /**
