@@ -3,6 +3,8 @@ package com.uav_app;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
+import android.os.Looper;
+import android.widget.Toast;
 
 import com.uav_app.back_end.EventBroker;
 import com.uav_app.back_end.message_manager.MavlinkMsgManager;
@@ -59,5 +61,24 @@ public class MyApplication extends Application {
      */
     public static Context getContext() {
         return context;
+    }
+
+    /**
+     * 调用此方法生成Toast。
+     *
+     * @param word 需要显示的文字
+     */
+    public static void makeToast(String word) {
+        if (Looper.getMainLooper() == Looper.myLooper()) {
+            // 在主线程中执行
+            Toast.makeText(context, word, Toast.LENGTH_SHORT).show();
+        } else {
+            // 在子线程中执行
+            new Thread(() -> {
+                Looper.prepare();
+                Toast.makeText(context, word, Toast.LENGTH_SHORT).show();
+                Looper.loop();
+            }).start();
+        }
     }
 }
