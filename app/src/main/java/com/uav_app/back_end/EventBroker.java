@@ -74,7 +74,9 @@ public class EventBroker {
         // 无人机连接成功
         UAV_CONNECT,
         // 无人机解锁
-        UAV_UNLOCK,
+        UAV_ARMED,
+        // 无人机锁定
+        UAV_DISARMED,
         // 无人机起飞
         UAV_TAKEOFF,
         // 无人机失去连接
@@ -162,6 +164,16 @@ public class EventBroker {
             if (UsbConnectManager.getConnectManager().isConnect() && UsbConnectManager.getConnectManager().isReceiving()) {
                 publishEvent(Event.UAV_DISCONNECT);
             }
+        }
+
+        @Override
+        public void onUavArmed() {
+            publishEvent(Event.UAV_ARMED);
+        }
+
+        @Override
+        public void onUavDisarmed() {
+            publishEvent(Event.UAV_DISARMED);
         }
 
         @Override

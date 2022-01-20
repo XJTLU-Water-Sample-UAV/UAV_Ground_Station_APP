@@ -64,7 +64,11 @@ public class UavStateManager {
                 }));
         disposables.add(drone.getTelemetry().getArmed().distinctUntilChanged()
                 .subscribe(armed -> {
-
+                    if (armed) {
+                        receiver.onUavArmed();
+                    } else {
+                        receiver.onUavDisarmed();
+                    }
                 }));
         disposables.add(drone.getTelemetry().getPosition().subscribe(position -> {
             LatLng latLng = new LatLng(position.getLatitudeDeg(), position.getLongitudeDeg());

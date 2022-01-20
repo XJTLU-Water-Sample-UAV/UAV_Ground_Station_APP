@@ -71,6 +71,22 @@ public class UIObserver implements EventBroker.EventObserver {
                 Toast.makeText(context, "数据收发异常，请检查数传连接", Toast.LENGTH_SHORT).show();
                 Looper.loop();
                 break;
+
+            case UAV_CONNECT:
+                stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_UAV_CONNECT);
+                break;
+
+            case UAV_DISCONNECT:
+                stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_UAV_DISCONNECT);
+                break;
+
+            case UAV_ARMED:
+                stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_UAV_ARMED);
+                break;
+
+            case UAV_DISARMED:
+                stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_UAV_DISARMED);
+                break;
         }
     }
 }

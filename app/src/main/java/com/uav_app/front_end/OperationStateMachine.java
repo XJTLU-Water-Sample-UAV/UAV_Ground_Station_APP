@@ -50,7 +50,7 @@ public class OperationStateMachine {
             case STATE_WAIT_TO_SELECT_POINT:
                 if (condition == SwitchCondition.CONDITION_USB_LOSE) {
                     state = State.STATE_USB_UNCONNECTED;
-                } else if (condition == SwitchCondition.CONDITION_UAV_LOSE) {
+                } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_ON_CLICK_SELECT) {
                     state = State.STATE_ON_SELECT;
@@ -60,7 +60,7 @@ public class OperationStateMachine {
             case STATE_ON_SELECT:
                 if (condition == SwitchCondition.CONDITION_USB_LOSE) {
                     state = State.STATE_USB_UNCONNECTED;
-                } else if (condition == SwitchCondition.CONDITION_UAV_LOSE) {
+                } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_ON_CLICK_CONFIRM) {
                     state = State.STATE_FINISH_SELECT_POINT;
@@ -72,7 +72,7 @@ public class OperationStateMachine {
             case STATE_FINISH_SELECT_POINT:
                 if (condition == SwitchCondition.CONDITION_USB_LOSE) {
                     state = State.STATE_USB_UNCONNECTED;
-                } else if (condition == SwitchCondition.CONDITION_UAV_LOSE) {
+                } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_ARMED) {
                     state = State.STATE_UAV_ARMED;
@@ -92,7 +92,7 @@ public class OperationStateMachine {
             case STATE_UAV_FLIGHT:
                 if (condition == SwitchCondition.CONDITION_USB_LOSE) {
                     state = State.STATE_USB_UNCONNECTED;
-                } else if (condition == SwitchCondition.CONDITION_UAV_LOSE) {
+                } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
                 }
                 break;
@@ -121,6 +121,6 @@ public class OperationStateMachine {
         CONDITION_UAV_DISARMED,
         CONDITION_UAV_TAKEOFF,
         CONDITION_USB_LOSE,
-        CONDITION_UAV_LOSE
+        CONDITION_UAV_DISCONNECT
     }
 }
