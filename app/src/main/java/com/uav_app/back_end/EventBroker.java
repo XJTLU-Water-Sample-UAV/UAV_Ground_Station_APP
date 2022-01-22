@@ -196,6 +196,11 @@ public class EventBroker {
         }
 
         @Override
+        public void onUavStateChange(UavStateManager.UavState state) {
+
+        }
+
+        @Override
         public void onSendUdpError(Exception e) {
             Information information = new Information();
             information.putInfo(e);

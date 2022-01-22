@@ -27,4 +27,9 @@ public interface UavStateInterface {
      * 无人机坐标改变
      */
     void onUavCoordChange(Telemetry.Position position);
+
+    /**
+     * 无人机状态改变
+     */
+    void onUavStateChange(UavStateManager.UavState state);
 }

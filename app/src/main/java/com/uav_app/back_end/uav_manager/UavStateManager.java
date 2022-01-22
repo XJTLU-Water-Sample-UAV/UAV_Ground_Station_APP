@@ -7,6 +7,7 @@ import java.util.List;
 
 import io.mavsdk.System;
 import io.mavsdk.mavsdkserver.MavsdkServer;
+import io.mavsdk.telemetry.Telemetry;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -60,6 +61,7 @@ public class UavStateManager {
                 .subscribe(flightMode -> {
 
                 }));
+        // 发布是否解锁监听请求
         disposables.add(drone.getTelemetry().getArmed().distinctUntilChanged()
                 .subscribe(armed -> {
                     if (armed) {
@@ -68,10 +70,9 @@ public class UavStateManager {
                         receiver.onUavDisarmed();
                     }
                 }));
+        // 发布位置监听请求
         disposables.add(drone.getTelemetry().getPosition().subscribe(position -> {
             receiver.onUavCoordChange(position);
-
-
         }));
     }
 

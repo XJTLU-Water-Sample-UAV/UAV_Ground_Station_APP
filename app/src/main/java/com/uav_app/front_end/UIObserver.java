@@ -85,6 +85,10 @@ public class UIObserver implements EventBroker.EventObserver {
             case UAV_DISARMED:
                 stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_UAV_DISARMED);
                 break;
+
+            case UAV_COORD_CHANGE:
+
+                break;
         }
     }
 }
