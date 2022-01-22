@@ -2,8 +2,6 @@ package com.uav_app.front_end;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Looper;
-import android.widget.Toast;
 
 import com.tools.Information;
 import com.uav_app.MyApplication;

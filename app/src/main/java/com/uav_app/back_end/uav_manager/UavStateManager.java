@@ -2,8 +2,6 @@ package com.uav_app.back_end.uav_manager;
 
 import android.annotation.SuppressLint;
 
-import com.amap.api.maps.model.LatLng;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +69,8 @@ public class UavStateManager {
                     }
                 }));
         disposables.add(drone.getTelemetry().getPosition().subscribe(position -> {
-            LatLng latLng = new LatLng(position.getLatitudeDeg(), position.getLongitudeDeg());
+            receiver.onUavCoordChange(position);
+
 
         }));
     }

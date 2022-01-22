@@ -1,5 +1,7 @@
 package com.uav_app.back_end.uav_manager;
 
+import io.mavsdk.telemetry.Telemetry;
+
 public interface UavStateInterface {
     /**
      * 无人机连接成功
@@ -21,6 +23,8 @@ public interface UavStateInterface {
      */
     void onUavDisarmed();
 
-
-    void onUavCoordChange();
+    /**
+     * 无人机坐标改变
+     */
+    void onUavCoordChange(Telemetry.Position position);
 }

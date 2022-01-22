@@ -1,7 +1,5 @@
 package com.uav_app.back_end;
 
-import android.content.Context;
-
 import com.tools.Information;
 import com.uav_app.back_end.message_manager.MavlinkMsgInterface;
 import com.uav_app.back_end.message_manager.MavlinkMsgManager;
@@ -12,6 +10,7 @@ import com.uav_app.back_end.usb_manager.UsbConnectManager;
 
 import java.util.List;
 
+import io.mavsdk.telemetry.Telemetry;
 import io.serial_port_driver.UsbSerialDriver;
 
 public class EventBroker {
@@ -190,8 +189,10 @@ public class EventBroker {
         }
 
         @Override
-        public void onUavCoordChange() {
-
+        public void onUavCoordChange(Telemetry.Position position) {
+            Information information = new Information();
+            information.putInfo(position);
+            publishEvent(Event.UAV_COORD_CHANGE, information);
         }
 
         @Override
