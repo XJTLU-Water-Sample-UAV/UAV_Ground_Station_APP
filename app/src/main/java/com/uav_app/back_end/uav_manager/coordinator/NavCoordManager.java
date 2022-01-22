@@ -15,18 +15,18 @@ public class NavCoordManager {
         coordinators.add(coordinator);
     }
 
-    public Coordinator getPoint(int pointNum) {
-        if (pointNum < coordinators.size()) {
-            return coordinators.get(pointNum);
+    public Coordinator getCoord(int coordNum) {
+        if (coordNum < coordinators.size()) {
+            return coordinators.get(coordNum);
         } else {
             return null;
         }
     }
 
-    public double getLng(int pointNum) {
-        if (pointNum < coordinators.size()) {
-            Coordinator point = coordinators.get(pointNum);
-            return point.getLng();
+    public double getLng(int coordNum) {
+        if (coordNum < coordinators.size()) {
+            Coordinator coordinator = coordinators.get(coordNum);
+            return coordinator.getLng();
         } else {
             return 0xFF;
         }
