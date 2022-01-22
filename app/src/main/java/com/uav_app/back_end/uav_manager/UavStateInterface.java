@@ -21,5 +21,6 @@ public interface UavStateInterface {
      */
     void onUavDisarmed();
 
+
     void onUavCoordChange();
 }

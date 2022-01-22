@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Looper;
 import android.widget.Toast;
 
+import com.tools.Information;
 import com.uav_app.MyApplication;
 import com.uav_app.back_end.EventBroker;
 import com.uav_app.back_end.uav_manager.UavStateManager;
@@ -35,7 +36,7 @@ public class UIObserver implements EventBroker.EventObserver {
     }
 
     @Override
-    public void onEvent(EventBroker.Event event) {
+    public void onEvent(EventBroker.Event event, Information information) {
         switch (event) {
             case USB_CANNOT_FOUND:
                 MyApplication.makeToast("找不到可用数传");

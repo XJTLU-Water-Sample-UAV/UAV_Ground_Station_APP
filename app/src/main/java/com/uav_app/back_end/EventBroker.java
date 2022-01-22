@@ -1,5 +1,8 @@
 package com.uav_app.back_end;
 
+import android.content.Context;
+
+import com.tools.Information;
 import com.uav_app.back_end.message_manager.MavlinkMsgInterface;
 import com.uav_app.back_end.message_manager.MavlinkMsgManager;
 import com.uav_app.back_end.uav_manager.UavStateInterface;
@@ -48,9 +51,9 @@ public class EventBroker {
         this.observer = observer;
     }
 
-    private void publishEvent(Event event) {
+    private void publishEvent(Event event, Information information) {
         if (observer != null) {
-            observer.onEvent(event);
+            observer.onEvent(event, information);
         }
     }
 
@@ -86,33 +89,35 @@ public class EventBroker {
     }
 
     public interface EventObserver {
-        void onEvent(Event event);
+        void onEvent(Event event, Information information);
     }
 
     private class EventReceiver implements UsbConnectInterface, MavlinkMsgInterface, UavStateInterface {
         @Override
         public void onCanNotFoundDevice() {
-            publishEvent(Event.USB_CANNOT_FOUND);
+            publishEvent(Event.USB_CANNOT_FOUND, null);
         }
 
         @Override
         public void onCanNotFoundSpecifiedDevice() {
-            publishEvent(Event.USB_CANNOT_FOUND_SPECIFIED);
+            publishEvent(Event.USB_CANNOT_FOUND_SPECIFIED, null);
         }
 
         @Override
         public void onFindMultipleDevices(List<UsbSerialDriver> driverList) {
-            publishEvent(Event.USB_FIND_MULTIPLE);
+            Information information = new Information();
+            information.putInfo(driverList);
+            publishEvent(Event.USB_FIND_MULTIPLE, information);
         }
 
         @Override
         public void onPermissionNotObtained() {
-            publishEvent(Event.USB_NO_PERMISSION);
+            publishEvent(Event.USB_NO_PERMISSION, null);
         }
 
         @Override
         public void onConnectUsbSuccess() {
-            publishEvent(Event.USB_CONNECT_SUCCESS);
+            publishEvent(Event.USB_CONNECT_SUCCESS, null);
             // 开始从USB串口接收消息
             connectManager.startReceiveMessage(data -> {
                 if (msgManager.isReceiving()) {
@@ -123,17 +128,21 @@ public class EventBroker {
 
         @Override
         public void onConnectUsbFail(Exception e) {
-            publishEvent(Event.USB_CONNECT_FAIL);
+            Information information = new Information();
+            information.putInfo(e);
+            publishEvent(Event.USB_CONNECT_FAIL, information);
         }
 
         @Override
         public void onLoseConnectDevice() {
-            publishEvent(Event.USB_LOSE);
+            publishEvent(Event.USB_LOSE, null);
         }
 
         @Override
         public void onSendUartError(Exception e) {
-            publishEvent(Event.USB_IO_ERROR);
+            Information information = new Information();
+            information.putInfo(e);
+            publishEvent(Event.USB_IO_ERROR, information);
         }
 
         @Override
@@ -153,39 +162,50 @@ public class EventBroker {
 
         @Override
         public void onRecvUartError(Exception e) {
-            publishEvent(Event.USB_IO_ERROR);
+            Information information = new Information();
+            information.putInfo(e);
+            publishEvent(Event.USB_IO_ERROR, information);
         }
 
         @Override
         public void onUavConnect() {
-            publishEvent(Event.UAV_CONNECT);
+            publishEvent(Event.UAV_CONNECT, null);
         }
 
         @Override
         public void onUavDisconnect() {
             if (UsbConnectManager.getConnectManager().isConnect() && UsbConnectManager.getConnectManager().isReceiving()) {
-                publishEvent(Event.UAV_DISCONNECT);
+                publishEvent(Event.UAV_DISCONNECT, null);
             }
         }
 
         @Override
         public void onUavArmed() {
-            publishEvent(Event.UAV_ARMED);
+            publishEvent(Event.UAV_ARMED, null);
         }
 
         @Override
         public void onUavDisarmed() {
-            publishEvent(Event.UAV_DISARMED);
+            publishEvent(Event.UAV_DISARMED, null);
+        }
+
+        @Override
+        public void onUavCoordChange() {
+
         }
 
         @Override
         public void onSendUdpError(Exception e) {
-            publishEvent(Event.USB_IO_ERROR);
+            Information information = new Information();
+            information.putInfo(e);
+            publishEvent(Event.USB_IO_ERROR, information);
         }
 
         @Override
         public void onRecvUdpError(Exception e) {
-            publishEvent(Event.USB_IO_ERROR);
+            Information information = new Information();
+            information.putInfo(e);
+            publishEvent(Event.USB_IO_ERROR, information);
         }
     }
 }
