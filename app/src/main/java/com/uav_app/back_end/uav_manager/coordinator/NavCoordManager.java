@@ -59,7 +59,7 @@ public class NavCoordManager {
         }
     }
 
-    public void setPoint(int coordNum, double lng, double lat, int height, int stayTime) {
+    public void setCoord(int coordNum, double lng, double lat, int height, int stayTime) {
         if (coordNum < coordinators.size()) {
             Coordinator coordinator = coordinators.get(coordNum);
             coordinator.setLng(lng);
@@ -69,7 +69,7 @@ public class NavCoordManager {
         }
     }
 
-    public void deletePoint(int coordNum) {
+    public void deleteCoord(int coordNum) {
         if (coordNum < coordinators.size()) {
             coordinators.remove(coordNum);
         }
@@ -79,11 +79,11 @@ public class NavCoordManager {
         coordinators.clear();
     }
 
-    public int getPointNum() {
+    public int getCoordNum() {
         return coordinators.size();
     }
 
-    public String getPointDescription(int coordNum) {
+    public String getCoordDescription(int coordNum) {
         return "航点" + (coordNum + 1) + "\n" + coordinators.get(coordNum).toString();
     }
 }

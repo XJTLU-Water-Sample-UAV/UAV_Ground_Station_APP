@@ -144,7 +144,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
         // 清除地图上的所有点，重新绘制
         markerList.clear();
         aMap.clear(true);
-        for (int i = 0; i < pointManager.getPointNum(); i++) {
+        for (int i = 0; i < pointManager.getCoordNum(); i++) {
             addPointToMap(pointManager.getCoord(i), i + 1);
         }
     }
@@ -255,7 +255,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
             pointManager.addPoint(wgs84LatLng[0], wgs84LatLng[1], Integer.parseInt(height),
                     Integer.parseInt(time));
             // 将点添加至地图
-            addPointToMap(pointManager.getCoord(pointManager.getPointNum() - 1), pointManager.getPointNum());
+            addPointToMap(pointManager.getCoord(pointManager.getCoordNum() - 1), pointManager.getCoordNum());
             // 更新listview
             connector.refreshList();
         });
@@ -324,7 +324,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
     }
 
     public void deletePoint(int position) {
-        pointManager.deletePoint(position);
+        pointManager.deleteCoord(position);
         // 刷新列表
         connector.refreshList();
         // 刷新地图点信息
@@ -351,7 +351,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
         polyline.remove();
         // 重新设置连线
         List<LatLng> latLngs = new ArrayList<>();
-        for (int i = 0; i < pointManager.getPointNum(); i++) {
+        for (int i = 0; i < pointManager.getCoordNum(); i++) {
             Coordinator eachPoint = pointManager.getCoord(i);
             CoordinateConverter eachConverter = new CoordinateConverter(connector.getContext());
             eachConverter.from(CoordinateConverter.CoordType.GPS);
@@ -379,7 +379,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
             clearPoint();
         }
         // 如果选点列表和地图上的点不一致，重新加载选点
-        if (pointManager.getPointNum() != markerList.size()) {
+        if (pointManager.getCoordNum() != markerList.size()) {
             // 清除地图上的所有点，重新绘制
             reloadPoints();
         }

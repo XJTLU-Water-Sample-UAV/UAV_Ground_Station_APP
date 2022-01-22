@@ -48,7 +48,7 @@ public class SelectView extends ChildView {
                 .nextState(OperationStateMachine.SwitchCondition.CONDITION_ON_CLICK_CANCEL));
         sendButton.setOnClickListener(v -> {
             // 判断是否没有选点
-            if (MapActivityState.getMapActivityState().pointManager.getPointNum() == 0) {
+            if (MapActivityState.getMapActivityState().pointManager.getCoordNum() == 0) {
                 Toast.makeText(context, "请选择至少一个航点", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -147,7 +147,7 @@ public class SelectView extends ChildView {
 
         @Override
         public int getCount() {
-            return pointManager.getPointNum();
+            return pointManager.getCoordNum();
         }
 
         @Override
@@ -167,7 +167,7 @@ public class SelectView extends ChildView {
             LayoutInflater factory = LayoutInflater.from(tabManager.getConnector().getContext());
             View outView = factory.inflate(R.layout.listview_point, null);
             SwipeView view = outView.findViewById(R.id.aPoint);
-            view.setText(pointManager.getPointDescription(position));
+            view.setText(pointManager.getCoordDescription(position));
             // 设置点击事件监听器
             view.setTextOnClickListener(v -> {
                 tabManager.closeTab();
