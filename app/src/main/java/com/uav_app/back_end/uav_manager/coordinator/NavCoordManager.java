@@ -32,46 +32,46 @@ public class NavCoordManager {
         }
     }
 
-    public double getLat(int pointNum) {
-        if (pointNum < coordinators.size()) {
-            Coordinator point = coordinators.get(pointNum);
-            return point.getLat();
+    public double getLat(int coordNum) {
+        if (coordNum < coordinators.size()) {
+            Coordinator coordinator = coordinators.get(coordNum);
+            return coordinator.getLat();
         } else {
             return 0xFF;
         }
     }
 
-    public double getHeight(int pointNum) {
-        if (pointNum < coordinators.size()) {
-            Coordinator point = coordinators.get(pointNum);
-            return point.getHeight();
+    public double getHeight(int coordNum) {
+        if (coordNum < coordinators.size()) {
+            Coordinator coordinator = coordinators.get(coordNum);
+            return coordinator.getHeight();
         } else {
             return 0xFF;
         }
     }
 
-    public double getStayTime(int pointNum) {
-        if (pointNum < coordinators.size()) {
-            Coordinator point = coordinators.get(pointNum);
-            return point.getStayTime();
+    public double getStayTime(int coordNum) {
+        if (coordNum < coordinators.size()) {
+            Coordinator coordinator = coordinators.get(coordNum);
+            return coordinator.getStayTime();
         } else {
             return 0xFF;
         }
     }
 
-    public void setPoint(int pointNum, double lng, double lat, int height, int stayTime) {
-        if (pointNum < coordinators.size()) {
-            Coordinator point = coordinators.get(pointNum);
-            point.setLng(lng);
-            point.setLat(lat);
-            point.setHeight(height);
-            point.setStayTime(stayTime);
+    public void setPoint(int coordNum, double lng, double lat, int height, int stayTime) {
+        if (coordNum < coordinators.size()) {
+            Coordinator coordinator = coordinators.get(coordNum);
+            coordinator.setLng(lng);
+            coordinator.setLat(lat);
+            coordinator.setHeight(height);
+            coordinator.setStayTime(stayTime);
         }
     }
 
-    public void deletePoint(int pointNum) {
-        if (pointNum < coordinators.size()) {
-            coordinators.remove(pointNum);
+    public void deletePoint(int coordNum) {
+        if (coordNum < coordinators.size()) {
+            coordinators.remove(coordNum);
         }
     }
 
@@ -83,7 +83,7 @@ public class NavCoordManager {
         return coordinators.size();
     }
 
-    public String getPointDescription(int pointNum) {
-        return "航点" + (pointNum + 1) + "\n" + coordinators.get(pointNum).toString();
+    public String getPointDescription(int coordNum) {
+        return "航点" + (coordNum + 1) + "\n" + coordinators.get(coordNum).toString();
     }
 }
