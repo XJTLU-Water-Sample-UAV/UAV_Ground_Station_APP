@@ -20,4 +20,6 @@ public interface UavStateInterface {
      * 无人机上锁
      */
     void onUavDisarmed();
+
+    void onUavCoordChange();
 }

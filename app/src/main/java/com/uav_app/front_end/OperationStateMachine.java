@@ -99,7 +99,6 @@ public class OperationStateMachine {
         }
         // 刷新布局
         mapActivityState.refreshState(state);
-
     }
 
     public enum State {

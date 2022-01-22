@@ -28,9 +28,9 @@ import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
 import com.tools.AccessParameter;
 import com.uav_app.back_end.uav_manager.R;
-import com.uav_app.back_end.uav_manager.nav_point.CoordinateTransformUtil;
-import com.uav_app.back_end.uav_manager.nav_point.NavPoint;
-import com.uav_app.back_end.uav_manager.nav_point.NavPointManager;
+import com.uav_app.back_end.uav_manager.coordinator.CoordTransformUtil;
+import com.uav_app.back_end.uav_manager.coordinator.Coordinator;
+import com.uav_app.back_end.uav_manager.coordinator.NavCoordManager;
 import com.uav_app.front_end.map_activity.MapActivity;
 import com.uav_app.front_end.map_activity.MapActivityState;
 
@@ -43,7 +43,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
     // 选点回调函数
     private final AMap.OnMapClickListener clickListener;
     // 选点管理对象
-    private final NavPointManager pointManager;
+    private final NavCoordManager pointManager;
     // 选点列表
     private final ArrayList<Marker> markerList;
     // 画线对象
@@ -128,7 +128,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
         double longitude = position.target.longitude;
         double latitude = position.target.latitude;
         // 使用自定义函数将坐标转换为WGS84
-        double[] wgs84LatLng = CoordinateTransformUtil.gcj02ToWgs84(longitude, latitude);
+        double[] wgs84LatLng = CoordTransformUtil.gcj02ToWgs84(longitude, latitude);
         parameter.storageParameters("wgs84Lng", (int) (wgs84LatLng[0] * 10000));
         parameter.storageParameters("wgs84Lat", (int) (wgs84LatLng[1] * 10000));
     }
@@ -216,7 +216,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
 
     private void selectPoint(LatLng latLng) {
         // 使用自定义函数将坐标转换为WGS84
-        double[] wgs84LatLng = CoordinateTransformUtil.gcj02ToWgs84(latLng.longitude, latLng.latitude);
+        double[] wgs84LatLng = CoordTransformUtil.gcj02ToWgs84(latLng.longitude, latLng.latitude);
         // 设置选点对话框
         View dialog = View.inflate(connector.getContext(), R.layout.dialog_set_point, null);
         final EditText e1 = dialog.findViewById(R.id.e1);
@@ -265,7 +265,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
     }
 
     public void modifyPoint(int position) {
-        NavPoint point = pointManager.getPoint(position);
+        Coordinator point = pointManager.getPoint(position);
         // 初始化对话框
         View dialog = View.inflate(connector.getContext(), R.layout.dialog_modify_point, null);
         final EditText m1 = dialog.findViewById(R.id.m1);
@@ -331,7 +331,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
         reloadPoints();
     }
 
-    private void addPointToMap(NavPoint point, int index) {
+    private void addPointToMap(Coordinator point, int index) {
         LatLng new84LatLng = new LatLng(point.getLat(), point.getLng());
         // 用官方函数将WGS84转换回GCJ02
         CoordinateConverter converter = new CoordinateConverter(connector.getContext());
@@ -352,7 +352,7 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
         // 重新设置连线
         List<LatLng> latLngs = new ArrayList<>();
         for (int i = 0; i < pointManager.getPointNum(); i++) {
-            NavPoint eachPoint = pointManager.getPoint(i);
+            Coordinator eachPoint = pointManager.getPoint(i);
             CoordinateConverter eachConverter = new CoordinateConverter(connector.getContext());
             eachConverter.from(CoordinateConverter.CoordType.GPS);
             eachConverter.coord(new LatLng(eachPoint.getLat(), eachPoint.getLng()));

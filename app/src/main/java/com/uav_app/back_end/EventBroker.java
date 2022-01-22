@@ -79,6 +79,8 @@ public class EventBroker {
         UAV_DISARMED,
         // 无人机起飞
         UAV_TAKEOFF,
+        // 无人机位置坐标改变
+        UAV_COORD_CHANGE,
         // 无人机失去连接
         UAV_DISCONNECT
     }

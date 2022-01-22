@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.uav_app.back_end.uav_manager.R;
-import com.uav_app.back_end.uav_manager.nav_point.NavPointManager;
+import com.uav_app.back_end.uav_manager.coordinator.NavCoordManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
 import com.uav_app.front_end.OperationStateMachine;
 import com.uav_app.front_end.map_activity.MapActivityState;
@@ -139,7 +139,7 @@ public class SelectView extends ChildView {
 
     private class PointListAdapter extends BaseAdapter {
         // 选点管理对象
-        private final NavPointManager pointManager;
+        private final NavCoordManager pointManager;
 
         public PointListAdapter() {
             pointManager = MapActivityState.getMapActivityState().getPointManager();

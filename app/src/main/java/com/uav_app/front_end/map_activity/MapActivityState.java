@@ -1,7 +1,7 @@
 package com.uav_app.front_end.map_activity;
 
 import com.amap.api.maps.model.Marker;
-import com.uav_app.back_end.uav_manager.nav_point.NavPointManager;
+import com.uav_app.back_end.uav_manager.coordinator.NavCoordManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
 import com.uav_app.front_end.OperationStateMachine;
 import com.uav_app.front_end.map_activity.managers.TabManager;
@@ -20,7 +20,7 @@ public class MapActivityState {
     // 等待界面状态
     public final TabViewState.WaitViewState waitViewState;
     // 选点管理器
-    public final NavPointManager pointManager;
+    public final NavCoordManager pointManager;
     // 监听器列表
     private final HashMap<Integer, StateChangeListener> listenerMap;
 
@@ -39,7 +39,7 @@ public class MapActivityState {
         tabViewState = new TabViewState();
         mapViewState = new MapViewState();
         waitViewState = new TabViewState.WaitViewState();
-        pointManager = new NavPointManager();
+        pointManager = new NavCoordManager();
         listenerMap = new HashMap<>();
     }
 
@@ -119,7 +119,7 @@ public class MapActivityState {
         listenerMap.remove(listenerId);
     }
 
-    public NavPointManager getPointManager() {
+    public NavCoordManager getPointManager() {
         return pointManager;
     }
 

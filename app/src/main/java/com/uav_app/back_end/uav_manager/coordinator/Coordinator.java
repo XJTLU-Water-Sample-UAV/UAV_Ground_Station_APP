@@ -1,14 +1,14 @@
-package com.uav_app.back_end.uav_manager.nav_point;
+package com.uav_app.back_end.uav_manager.coordinator;
 
 import androidx.annotation.NonNull;
 
-public class NavPoint {
+public class Coordinator {
     private double lng;
     private double lat;
     private int height;
     private int stayTime;
 
-    public NavPoint(double lng, double lat, int height, int stayTime) {
+    public Coordinator(double lng, double lat, int height, int stayTime) {
         this.lng = lng;
         this.lat = lat;
         this.height = height;

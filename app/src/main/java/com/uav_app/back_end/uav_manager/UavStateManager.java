@@ -96,11 +96,9 @@ public class UavStateManager {
 
     public void unlockUav() {
         drone.getAction().arm().onErrorComplete().subscribe();
-//        drone.getCamera().takePhoto().subscribe();
     }
 
     public void takeoff() {
-//        drone.getAction().arm().onErrorComplete().andThen(drone.getAction().takeoff()).subscribe();
         drone.getAction().takeoff().onErrorComplete().subscribe();
     }
 

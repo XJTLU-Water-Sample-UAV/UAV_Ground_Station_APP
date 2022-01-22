@@ -1,9 +1,9 @@
-package com.uav_app.back_end.uav_manager.nav_point;
+package com.uav_app.back_end.uav_manager.coordinator;
 
 /**
  * 本类用于实现坐标转换
  */
-public class CoordinateTransformUtil {
+public class CoordTransformUtil {
     // 圆周率
     static double x_pi = 3.14159265358979324 * 3000.0 / 180.0;
     // π
