@@ -7,7 +7,7 @@ import java.util.List;
 
 import io.mavsdk.System;
 import io.mavsdk.mavsdkserver.MavsdkServer;
-import io.mavsdk.telemetry.Telemetry;
+import io.mavsdk.mission.Mission;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -129,8 +129,6 @@ public class UavStateManager {
         // 降落中
         UAV_LANDING,
         // 任务完成等待回收
-        UAV_MISSION_ACCOMPLISHED,
-        // 无人机丢失（异常断开连接）
-        UAV_LOSS
+        UAV_MISSION_ACCOMPLISHED
     }
 }
