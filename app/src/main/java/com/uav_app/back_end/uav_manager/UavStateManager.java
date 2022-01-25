@@ -8,6 +8,7 @@ import java.util.List;
 import io.mavsdk.System;
 import io.mavsdk.mavsdkserver.MavsdkServer;
 import io.mavsdk.mission.Mission;
+import io.mavsdk.param.Param;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -19,7 +20,7 @@ public class UavStateManager {
     // 观察者对象列表
     private UavStateInterface receiver;
     // 无人机状态
-    private final UavState uavState;
+    private UavState uavState;
     // MAVSDK子栈列表
     private final List<Disposable> disposables = new ArrayList<>();
     // 无人机系统后端对象
@@ -51,14 +52,23 @@ public class UavStateManager {
         disposables.add(drone.getCore().getConnectionState().distinctUntilChanged().subscribe(connectionState -> {
             boolean isConnect = connectionState.getIsConnected();
             if (isConnect) {
-                receiver.onUavConnect();
+                this.receiver.onUavConnect();
+                downloadUavState();
             } else {
-                receiver.onUavDisconnect();
+                this.receiver.onUavDisconnect();
+                this.uavState = UavState.UAV_NOT_CONNECT;
             }
         }));
         // 发布飞行模式监听请求
         disposables.add(drone.getTelemetry().getFlightMode().distinctUntilChanged()
                 .subscribe(flightMode -> {
+                    switch (flightMode) {
+                        case MISSION:
+                            break;
+
+                        default:
+                            break;
+                    }
 
 
                 }));
@@ -75,6 +85,24 @@ public class UavStateManager {
         disposables.add(drone.getTelemetry().getPosition().subscribe(position -> {
             receiver.onUavCoordChange(position);
         }));
+    }
+
+    @SuppressLint("CheckResult")
+    private void downloadUavState() {
+        drone.getMission().getMissionProgress().distinctUntilChanged().subscribe(missionProgress -> {
+            int process = missionProgress.getCurrent();
+
+
+        });
+
+    }
+
+    public void setMission(){
+
+    }
+
+    public void startMission(){
+
     }
 
     /**
@@ -119,8 +147,6 @@ public class UavStateManager {
         UAV_NOT_CONNECT,
         // 无人机状态就绪
         UAV_STANDING_BY,
-        // 起飞中
-        UAV_TAKE_OFF,
         // 正在前往取样点
         UAV_ROUTING,
         // 采样中
