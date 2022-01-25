@@ -34,12 +34,14 @@ public class OperationStateMachine {
         // 切换状态
         switch (state) {
             case STATE_USB_UNCONNECTED:
+                // USB设备未连接
                 if (condition == SwitchCondition.CONDITION_USB_CONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
                 }
                 break;
 
             case STATE_UAV_UNCONNECTED:
+                // 无人机未连接
                 if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_CONNECT) {
@@ -48,6 +50,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_WAIT_TO_SELECT_POINT:
+                // 无人机等待选点中
                 if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
@@ -58,6 +61,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_ON_SELECT:
+                // 选点中
                 if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
@@ -70,6 +74,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_FINISH_SELECT_POINT:
+                // 完成选点
                 if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
@@ -82,6 +87,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_UAV_ARMED:
+                // 无人机解锁
                 if (condition == SwitchCondition.CONDITION_UAV_TAKEOFF) {
                     state = State.STATE_UAV_FLIGHT;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISARMED) {
@@ -90,6 +96,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_UAV_FLIGHT:
+                // 无人机起飞
                 if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
@@ -97,20 +104,33 @@ public class OperationStateMachine {
                 }
                 break;
         }
-        // 刷新布局
+        // 通知UI刷新布局
         mapActivityState.refreshState(state);
     }
 
+    /*
+     * 状态机状态
+     **/
     public enum State {
+        // USB设备未连接
         STATE_USB_UNCONNECTED,
+        // 无人机未连接
         STATE_UAV_UNCONNECTED,
+        // 无人机等待选点中
         STATE_WAIT_TO_SELECT_POINT,
+        // 选点中
         STATE_ON_SELECT,
+        // 完成选点
         STATE_FINISH_SELECT_POINT,
+        // 无人机解锁
         STATE_UAV_ARMED,
+        // 无人机起飞
         STATE_UAV_FLIGHT,
     }
 
+    /*
+     * 跳转条件（输入条件）
+     **/
     public enum SwitchCondition {
         CONDITION_USB_CONNECT,
         CONDITION_UAV_CONNECT,
