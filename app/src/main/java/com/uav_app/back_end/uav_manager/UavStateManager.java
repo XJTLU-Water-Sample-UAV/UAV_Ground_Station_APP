@@ -60,6 +60,7 @@ public class UavStateManager {
         disposables.add(drone.getTelemetry().getFlightMode().distinctUntilChanged()
                 .subscribe(flightMode -> {
 
+
                 }));
         // 发布是否解锁监听请求
         disposables.add(drone.getTelemetry().getArmed().distinctUntilChanged()
