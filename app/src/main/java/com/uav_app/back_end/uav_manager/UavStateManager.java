@@ -22,8 +22,6 @@ public class UavStateManager {
     private UavStateInterface receiver;
     // 无人机状态
     private UavState uavState;
-    // MAVSDK子栈列表
-    private final List<Disposable> disposables = new ArrayList<>();
     // 无人机系统后端对象
     private final System drone;
     // 后端IP地址
@@ -50,18 +48,19 @@ public class UavStateManager {
         int mavsdkServerPort = mavsdkServer.run("udp://:" + BACKEND_PORT);
         drone = new System(BACKEND_IP_ADDRESS, mavsdkServerPort);
         // 发布无人机连接监听请求
-        disposables.add(drone.getCore().getConnectionState().distinctUntilChanged().subscribe(connectionState -> {
+        drone.getCore().getConnectionState().distinctUntilChanged().subscribe(connectionState -> {
             boolean isConnect = connectionState.getIsConnected();
             if (isConnect) {
                 this.receiver.onUavConnect();
+                this.uavState = UavState.UAV_UNKNOWN;
                 downloadUavState();
             } else {
                 this.receiver.onUavDisconnect();
                 this.uavState = UavState.UAV_NOT_CONNECT;
             }
-        }));
+        });
         // 发布飞行模式监听请求
-        disposables.add(drone.getTelemetry().getFlightMode().distinctUntilChanged()
+        drone.getTelemetry().getFlightMode().distinctUntilChanged()
                 .subscribe(flightMode -> {
                     switch (flightMode) {
                         case MISSION:
@@ -70,38 +69,41 @@ public class UavStateManager {
                         default:
                             break;
                     }
-
-
-                }));
+                });
         // 发布是否解锁监听请求
-        disposables.add(drone.getTelemetry().getArmed().distinctUntilChanged()
+        drone.getTelemetry().getArmed().distinctUntilChanged()
                 .subscribe(armed -> {
                     if (armed) {
                         receiver.onUavArmed();
                     } else {
                         receiver.onUavDisarmed();
                     }
-                }));
+                });
         // 发布位置监听请求
-        disposables.add(drone.getTelemetry().getPosition().subscribe(position -> {
+        drone.getTelemetry().getPosition().subscribe(position -> {
             receiver.onUavCoordChange(position);
-        }));
+        });
+    }
+
+    /**
+     * 添加USB事件的监听器
+     *
+     * @param receiver 监听器对象
+     */
+    public void setReceiver(UavStateInterface receiver) {
+        this.receiver = receiver;
     }
 
     @SuppressLint("CheckResult")
     private void downloadUavState() {
         drone.getMission().getMissionProgress().distinctUntilChanged().subscribe(missionProgress -> {
             int process = missionProgress.getCurrent();
-
-
         });
-
     }
 
     public void setMission() {
         ArrayList<Mission.MissionItem> missionList = new ArrayList<>();
         Mission.MissionPlan missionPlan = new Mission.MissionPlan(missionList);
-
         drone.getMission().uploadMission(missionPlan);
     }
 
@@ -115,13 +117,8 @@ public class UavStateManager {
         drone.getMission().startMission();
     }
 
-    /**
-     * 添加USB事件的监听器
-     *
-     * @param receiver 监听器对象
-     */
-    public void setReceiver(UavStateInterface receiver) {
-        this.receiver = receiver;
+    public void armUav() {
+        drone.getAction().arm().onErrorComplete().subscribe();
     }
 
     /**
@@ -133,9 +130,6 @@ public class UavStateManager {
         return uavState;
     }
 
-    public void armUav() {
-        drone.getAction().arm().onErrorComplete().subscribe();
-    }
 
     /**
      * 表示无人机状态的枚举类
@@ -143,6 +137,8 @@ public class UavStateManager {
     public enum UavState {
         // 无人机未连接地面站
         UAV_NOT_CONNECT,
+        // 无人机已连接，但状态未知
+        UAV_UNKNOWN,
         // 无人机状态就绪
         UAV_STANDING_BY,
         // 正在前往取样点
