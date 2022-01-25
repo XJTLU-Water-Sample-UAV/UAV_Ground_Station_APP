@@ -20,16 +20,6 @@ public class FlightView extends ChildView {
         showButton.setOnClickListener(v -> {
 
 
-            UavStateManager.getUavStateManager().landing();
-            /*
-            if (tabManager.isTabShow()) {
-                tabManager.closeTab();
-            } else {
-                tabManager.openTab();
-            }
-            */
-
-
         });
     }
 

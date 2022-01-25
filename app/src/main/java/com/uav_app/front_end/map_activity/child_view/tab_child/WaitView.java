@@ -29,7 +29,7 @@ public class WaitView extends ChildView implements MapActivityState.StateChangeL
         selectButton.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine()
                 .nextState(OperationStateMachine.SwitchCondition.CONDITION_ON_CLICK_SELECT));
         unlockButton.setOnClickListener(v -> {
-            UavStateManager.getUavStateManager().unlockUav();
+            UavStateManager.getUavStateManager().armUav();
             /*
             if (MapActivityState.getMapActivityState().waitViewState.isUavUnlocked) {
                 OperationStateMachine.getOperationStateMachine().switchState(OperationStateMachine
@@ -46,7 +46,7 @@ public class WaitView extends ChildView implements MapActivityState.StateChangeL
 
         Button takeoffButton = findViewById(R.id.takeoffButton);
         takeoffButton.setOnClickListener(v -> {
-            UavStateManager.getUavStateManager().takeoff();
+
         });
     }
 

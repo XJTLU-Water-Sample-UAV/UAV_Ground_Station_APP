@@ -10,6 +10,7 @@ import io.mavsdk.mavsdkserver.MavsdkServer;
 import io.mavsdk.mission.Mission;
 import io.mavsdk.param.Param;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 
 /**
  * 本类用于管理和控制无人机的状态
@@ -104,6 +105,12 @@ public class UavStateManager {
         drone.getMission().uploadMission(missionPlan);
     }
 
+    @SuppressLint("CheckResult")
+    public void clearMission() {
+        drone.getMission().cancelMissionUpload().subscribe();
+        drone.getMission().clearMission().subscribe();
+    }
+
     public void startMission() {
         drone.getMission().startMission();
     }
@@ -126,20 +133,8 @@ public class UavStateManager {
         return uavState;
     }
 
-    public void unlockUav() {
+    public void armUav() {
         drone.getAction().arm().onErrorComplete().subscribe();
-    }
-
-    public void takeoff() {
-        drone.getAction().takeoff().onErrorComplete().subscribe();
-    }
-
-    public void landing() {
-        drone.getAction().land().subscribe();
-    }
-
-    public void sendPoint(float x, float y, float z) {
-
     }
 
     /**
