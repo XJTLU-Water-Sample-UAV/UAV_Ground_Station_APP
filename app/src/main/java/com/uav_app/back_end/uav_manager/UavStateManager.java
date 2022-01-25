@@ -97,12 +97,15 @@ public class UavStateManager {
 
     }
 
-    public void setMission(){
+    public void setMission() {
+        ArrayList<Mission.MissionItem> missionList = new ArrayList<>();
+        Mission.MissionPlan missionPlan = new Mission.MissionPlan(missionList);
 
+        drone.getMission().uploadMission(missionPlan);
     }
 
-    public void startMission(){
-
+    public void startMission() {
+        drone.getMission().startMission();
     }
 
     /**
