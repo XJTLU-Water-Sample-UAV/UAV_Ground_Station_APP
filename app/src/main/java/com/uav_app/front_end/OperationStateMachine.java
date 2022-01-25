@@ -40,7 +40,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_UAV_UNCONNECTED:
-                if (condition == SwitchCondition.CONDITION_USB_LOSE) {
+                if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_CONNECT) {
                     state = State.STATE_WAIT_TO_SELECT_POINT;
@@ -48,7 +48,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_WAIT_TO_SELECT_POINT:
-                if (condition == SwitchCondition.CONDITION_USB_LOSE) {
+                if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
@@ -58,7 +58,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_ON_SELECT:
-                if (condition == SwitchCondition.CONDITION_USB_LOSE) {
+                if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
@@ -70,7 +70,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_FINISH_SELECT_POINT:
-                if (condition == SwitchCondition.CONDITION_USB_LOSE) {
+                if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
@@ -90,7 +90,7 @@ public class OperationStateMachine {
                 break;
 
             case STATE_UAV_FLIGHT:
-                if (condition == SwitchCondition.CONDITION_USB_LOSE) {
+                if (condition == SwitchCondition.CONDITION_USB_DISCONNECT) {
                     state = State.STATE_USB_UNCONNECTED;
                 } else if (condition == SwitchCondition.CONDITION_UAV_DISCONNECT) {
                     state = State.STATE_UAV_UNCONNECTED;
@@ -120,7 +120,7 @@ public class OperationStateMachine {
         CONDITION_UAV_ARMED,
         CONDITION_UAV_DISARMED,
         CONDITION_UAV_TAKEOFF,
-        CONDITION_USB_LOSE,
+        CONDITION_USB_DISCONNECT,
         CONDITION_UAV_DISCONNECT
     }
 }

@@ -63,7 +63,7 @@ public class UIObserver implements EventBroker.EventObserver {
 
             case USB_LOSE:
                 MyApplication.makeToast("数传断开连接");
-                stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_USB_LOSE);
+                stateMachine.nextState(OperationStateMachine.SwitchCondition.CONDITION_USB_DISCONNECT);
                 break;
 
             case USB_IO_ERROR:
