@@ -105,6 +105,7 @@ public class UavStateManager {
         ArrayList<Mission.MissionItem> missionList = new ArrayList<>();
         Mission.MissionPlan missionPlan = new Mission.MissionPlan(missionList);
         drone.getMission().uploadMission(missionPlan);
+
     }
 
     @SuppressLint("CheckResult")
