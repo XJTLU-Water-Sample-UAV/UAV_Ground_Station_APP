@@ -131,7 +131,6 @@ public class UavStateManager {
         return uavState;
     }
 
-
     /**
      * 表示无人机状态的枚举类
      */
