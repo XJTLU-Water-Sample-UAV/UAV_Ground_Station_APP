@@ -57,8 +57,8 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
         uiSettings.setZoomPosition(AMapOptions.ZOOM_POSITION_RIGHT_CENTER);
         uiSettings.setCompassEnabled(true);
         // 初始化选点列表和管理对象
-        markerList = MapActivityState.getMapActivityState().mapViewState.markerList;
-        pointManager = MapActivityState.getMapActivityState().getPointManager();
+        markerList = MapActivityState.getMapActivityState().getMapViewState().markerList;
+        pointManager = MapActivityState.getMapActivityState().getCoordManager();
         // 初始化选点回调函数
         clickListener = this::selectPoint;
         // 初始化定位蓝点样式类
@@ -369,12 +369,12 @@ public class MapManager extends Manager implements MapActivityState.StateChangeL
     @Override
     public void onStateChange(MapActivityState mapActivityState) {
         // 开始/关闭选点
-        if (mapActivityState.mapViewState.isCanBeSelect) {
+        if (mapActivityState.getMapViewState().isCanBeSelect) {
             startSelectPoint();
         } else {
             stopSelectPoint();
         }
-        if (!mapActivityState.waitViewState.isPointSelected) {
+        if (!mapActivityState.getWaitViewState().isPointSelected) {
             // 如果没有选点，清除地图上的点
             clearPoint();
         }

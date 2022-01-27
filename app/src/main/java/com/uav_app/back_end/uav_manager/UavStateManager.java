@@ -5,14 +5,10 @@ import android.annotation.SuppressLint;
 import com.uav_app.back_end.uav_manager.coordinator.NavCoordManager;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import io.mavsdk.System;
 import io.mavsdk.mavsdkserver.MavsdkServer;
 import io.mavsdk.mission.Mission;
-import io.mavsdk.param.Param;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Action;
 
 /**
  * 本类用于管理和控制无人机的状态
@@ -100,6 +96,7 @@ public class UavStateManager {
     private void downloadUavState() {
         drone.getMission().getMissionProgress().distinctUntilChanged().subscribe(missionProgress -> {
             int process = missionProgress.getCurrent();
+            int total = missionProgress.getTotal();
         });
     }
 
@@ -107,11 +104,13 @@ public class UavStateManager {
         ArrayList<Mission.MissionItem> missionList = new ArrayList<>();
         for (int i = 0; i < manager.getCoordNum(); i++) {
             boolean isFlyThrough = i == manager.getCoordNum() - 1;
+            // 添加航点规划
             missionList.add(new Mission.MissionItem(manager.getLat(i), manager.getLng(i),
                     (float) manager.getHeight(i), (float) 0, isFlyThrough, (float) 0, (float) 0,
-                    Mission.MissionItem.CameraAction.TAKE_PHOTO, (float) manager.getStayTime(i), (double) 0));
+                    Mission.MissionItem.CameraAction.NONE, (float) manager.getStayTime(i), (double) 0));
         }
         Mission.MissionPlan missionPlan = new Mission.MissionPlan(missionList);
+        // 发送航点
         drone.getMission().uploadMission(missionPlan);
     }
 

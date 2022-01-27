@@ -213,7 +213,7 @@ public class TabManager extends Manager implements MapActivityState.StateChangeL
     @Override
     public void onStateChange(MapActivityState mapActivityState) {
         // 判断当前连接情况以动态加载面板
-        transferTab(mapActivityState.tabViewState.tabState);
+        transferTab(mapActivityState.getTabViewState().tabState);
     }
 
     public void refreshList() {

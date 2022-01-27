@@ -12,9 +12,10 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.uav_app.MyApplication;
 import com.uav_app.back_end.uav_manager.R;
+import com.uav_app.back_end.uav_manager.UavStateManager;
 import com.uav_app.back_end.uav_manager.coordinator.NavCoordManager;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
 import com.uav_app.front_end.OperationStateMachine;
@@ -47,14 +48,15 @@ public class SelectView extends ChildView {
         cancelButton.setOnClickListener(v -> OperationStateMachine.getOperationStateMachine()
                 .nextState(OperationStateMachine.SwitchCondition.CONDITION_ON_CLICK_CANCEL));
         sendButton.setOnClickListener(v -> {
+            NavCoordManager coordManager = MapActivityState.getMapActivityState().getCoordManager();
             // 判断是否没有选点
-            if (MapActivityState.getMapActivityState().pointManager.getCoordNum() == 0) {
-                Toast.makeText(context, "请选择至少一个航点", Toast.LENGTH_SHORT).show();
+            if (coordManager.getCoordNum() == 0) {
+                MyApplication.makeToast("请选择至少一个航点");
                 return;
             }
             if (UsbConnectManager.getConnectManager().isConnect()) {
-                // UavStateManager.getUavStateManager().connectUav();
-                Toast.makeText(context, "发送成功", Toast.LENGTH_SHORT).show();
+                UavStateManager.getUavStateManager().setMission(coordManager);
+                MyApplication.makeToast("发送成功");
             }
             OperationStateMachine.getOperationStateMachine().nextState(OperationStateMachine
                     .SwitchCondition.CONDITION_ON_CLICK_CONFIRM);
@@ -142,7 +144,7 @@ public class SelectView extends ChildView {
         private final NavCoordManager pointManager;
 
         public PointListAdapter() {
-            pointManager = MapActivityState.getMapActivityState().getPointManager();
+            pointManager = MapActivityState.getMapActivityState().getCoordManager();
         }
 
         @Override

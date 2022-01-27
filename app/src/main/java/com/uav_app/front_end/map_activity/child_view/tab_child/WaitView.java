@@ -52,14 +52,14 @@ public class WaitView extends ChildView implements MapActivityState.StateChangeL
 
     @Override
     public void onStateChange(MapActivityState mapActivityState) {
-        if (mapActivityState.waitViewState.isPointSelected) {
+        if (mapActivityState.getWaitViewState().isPointSelected) {
             selectButton.setText(R.string.reselectButtonText);
         } else {
             selectButton.setText(R.string.selectButtonText);
         }
-        if (mapActivityState.waitViewState.isUavArmed) {
+        if (mapActivityState.getWaitViewState().isUavArmed) {
             unlockButton.setText(R.string.takeoffButtonText);
-            unlockButton.setEnabled(mapActivityState.waitViewState.isPointSelected);
+            unlockButton.setEnabled(mapActivityState.getWaitViewState().isPointSelected);
         } else {
             unlockButton.setText(R.string.unlockButtonText);
             unlockButton.setEnabled(true);

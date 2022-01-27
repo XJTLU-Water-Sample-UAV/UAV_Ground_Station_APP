@@ -14,13 +14,13 @@ public class MapActivityState {
     // 本类单例对象
     private volatile static MapActivityState mapActivityState;
     // 地图状态
-    public final MapViewState mapViewState;
+    private final MapViewState mapViewState;
     // 面板状态
-    public final TabViewState tabViewState;
+    private final TabViewState tabViewState;
     // 等待界面状态
-    public final TabViewState.WaitViewState waitViewState;
+    private final TabViewState.WaitViewState waitViewState;
     // 选点管理器
-    public final NavCoordManager pointManager;
+    private final NavCoordManager pointManager;
     // 监听器列表
     private final HashMap<Integer, StateChangeListener> listenerMap;
 
@@ -119,8 +119,20 @@ public class MapActivityState {
         listenerMap.remove(listenerId);
     }
 
-    public NavCoordManager getPointManager() {
+    public NavCoordManager getCoordManager() {
         return pointManager;
+    }
+
+    public TabViewState.WaitViewState getWaitViewState() {
+        return waitViewState;
+    }
+
+    public MapViewState getMapViewState() {
+        return mapViewState;
+    }
+
+    public TabViewState getTabViewState() {
+        return tabViewState;
     }
 
     /**
