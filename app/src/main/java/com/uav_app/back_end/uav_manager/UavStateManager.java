@@ -2,6 +2,8 @@ package com.uav_app.back_end.uav_manager;
 
 import android.annotation.SuppressLint;
 
+import com.uav_app.back_end.uav_manager.coordinator.NavCoordManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,11 +103,16 @@ public class UavStateManager {
         });
     }
 
-    public void setMission() {
+    public void setMission(NavCoordManager manager) {
         ArrayList<Mission.MissionItem> missionList = new ArrayList<>();
+        for (int i = 0; i < manager.getCoordNum(); i++) {
+            boolean isFlyThrough = i == manager.getCoordNum() - 1;
+            missionList.add(new Mission.MissionItem(manager.getLat(i), manager.getLng(i),
+                    (float) manager.getHeight(i), (float) 0, isFlyThrough, (float) 0, (float) 0,
+                    Mission.MissionItem.CameraAction.TAKE_PHOTO, (float) manager.getStayTime(i), (double) 0));
+        }
         Mission.MissionPlan missionPlan = new Mission.MissionPlan(missionList);
         drone.getMission().uploadMission(missionPlan);
-
     }
 
     @SuppressLint("CheckResult")
