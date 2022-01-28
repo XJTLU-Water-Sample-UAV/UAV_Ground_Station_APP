@@ -24,15 +24,16 @@
       <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/1fef7bfdee7fd194b4e61a53c7bee365/transformed/vectordrawable-animated-1.1.0/res" />
       <root url="file://D:/Android/Gradle/caches/transforms-3/b857afdc47b07affe66ad0787ff8898e/transformed/vectordrawable-animated-1.1.0/res" />
       <root url="file://D:/Android/Gradle/caches/transforms-3/c71e36a063d200238cdc102fc46e907c/transformed/vectordrawable-animated-1.1.0/res" />
-      <root url="file://D:/Android/Gradle/caches/transforms-3/c71e36a063d200238cdc102fc46e907c/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml" />
-      <root url="jar://D:/Android/Gradle/caches/transforms-3/c71e36a063d200238cdc102fc46e907c/transformed/vectordrawable-animated-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c71e36a063d200238cdc102fc46e907c/transformed/vectordrawable-animated-1.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/cbe986872b261282d7739bfd1375243a/transformed/vectordrawable-animated-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cbe986872b261282d7739bfd1375243a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cbe986872b261282d7739bfd1375243a/transformed/vectordrawable-animated-1.1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.vectordrawable/vectordrawable-animated/1.1.0/871a7705cd03bc246947638c712cdd11378233ff/vectordrawable-animated-1.1.0-sources.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.vectordrawable/vectordrawable-animated/1.1.0/871a7705cd03bc246947638c712cdd11378233ff/vectordrawable-animated-1.1.0-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.vectordrawable/vectordrawable-animated/1.1.0/871a7705cd03bc246947638c712cdd11378233ff/vectordrawable-animated-1.1.0-sources.jar!/" />
-      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.vectordrawable/vectordrawable-animated/1.1.0/871a7705cd03bc246947638c712cdd11378233ff/vectordrawable-animated-1.1.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

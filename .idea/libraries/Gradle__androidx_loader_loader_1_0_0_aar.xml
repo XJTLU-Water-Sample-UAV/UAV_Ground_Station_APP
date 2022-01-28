@@ -24,15 +24,16 @@
       <root url="file://$PROJECT_DIR$/../../../../Android/Gradle/caches/transforms-3/badec6160e3d39586c8deb1d4184fe45/transformed/loader-1.0.0/res" />
       <root url="file://D:/Android/Gradle/caches/transforms-3/91d348ceb61ca3668a42cbeb4fd16a77/transformed/loader-1.0.0/res" />
       <root url="file://D:/Android/Gradle/caches/transforms-3/c2bced9dda4c48cf4ee75ba20297b327/transformed/loader-1.0.0/res" />
-      <root url="file://D:/Android/Gradle/caches/transforms-3/c2bced9dda4c48cf4ee75ba20297b327/transformed/loader-1.0.0/AndroidManifest.xml" />
-      <root url="jar://D:/Android/Gradle/caches/transforms-3/c2bced9dda4c48cf4ee75ba20297b327/transformed/loader-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c2bced9dda4c48cf4ee75ba20297b327/transformed/loader-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4f2f360278bbc30681a8f955b1ffa917/transformed/loader-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4f2f360278bbc30681a8f955b1ffa917/transformed/loader-1.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/4f2f360278bbc30681a8f955b1ffa917/transformed/loader-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../../../Android/Gradle/caches/modules-2/files-2.1/androidx.loader/loader/1.0.0/b9ef587f3e46c7fe5b00264989764e43ff45cada/loader-1.0.0-sources.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.loader/loader/1.0.0/b9ef587f3e46c7fe5b00264989764e43ff45cada/loader-1.0.0-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../../../Gradel/caches/modules-2/files-2.1/androidx.loader/loader/1.0.0/b9ef587f3e46c7fe5b00264989764e43ff45cada/loader-1.0.0-sources.jar!/" />
-      <root url="jar://D:/Android/Gradle/caches/modules-2/files-2.1/androidx.loader/loader/1.0.0/b9ef587f3e46c7fe5b00264989764e43ff45cada/loader-1.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
