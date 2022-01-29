@@ -18,8 +18,6 @@ public class FlightView extends ChildView {
         LayoutInflater.from(context).inflate(R.layout.mode_flight, this);
         this.showButton = findViewById(R.id.showInfoButton);
         showButton.setOnClickListener(v -> {
-
-
         });
     }
 
