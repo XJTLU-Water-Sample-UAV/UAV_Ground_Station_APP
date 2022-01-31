@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.widget.Button;
 
 import com.uav_app.back_end.uav_manager.R;
-import com.uav_app.back_end.uav_manager.UavStateManager;
 import com.uav_app.front_end.map_activity.managers.TabManager;
 
 @SuppressLint("ViewConstructor")
