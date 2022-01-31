@@ -8,7 +8,6 @@ import android.widget.Button;
 import com.uav_app.back_end.uav_manager.R;
 import com.uav_app.front_end.map_activity.managers.TabManager;
 
-
 @SuppressLint("ViewConstructor")
 public class FlightView extends ChildView {
     private final Button showButton;
