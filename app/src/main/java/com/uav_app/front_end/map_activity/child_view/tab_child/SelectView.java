@@ -31,7 +31,6 @@ public class SelectView extends ChildView {
     private final ListView mListView;
     private final PointListAdapter mAdapter;
 
-
     public SelectView(Context context, TabManager tabManager) {
         super(context, tabManager);
         LayoutInflater.from(context).inflate(R.layout.mode_select, this);
