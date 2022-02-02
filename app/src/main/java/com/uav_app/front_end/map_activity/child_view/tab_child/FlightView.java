@@ -30,4 +30,3 @@ public class FlightView extends ChildView {
         showButton.setText("展开详情");
     }
 }
-
