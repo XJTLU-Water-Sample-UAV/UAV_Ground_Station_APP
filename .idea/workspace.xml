@@ -12,11 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99d7a6d-03e2-4e5b-b98d-e3486feb5af0" name="Default Changelist" comment="2.3">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/button.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/button.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a99d7a6d-03e2-4e5b-b98d-e3486feb5af0" name="Default Changelist" comment="2.5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,13 +224,6 @@
       <option name="presentableId" value="Default" />
       <updated>1604240815987</updated>
       <workItem from="1606379971215" duration="102000" />
-    </task>
-    <task id="LOCAL-00017" summary="1.19">
-      <created>1642568929658</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1642568929658</updated>
     </task>
     <task id="LOCAL-00018" summary="1.19">
       <created>1642570803628</created>
@@ -572,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643862700980</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="2.5">
+      <created>1644073722939</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1644073722939</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -608,6 +604,7 @@
     <MESSAGE value="2.1" />
     <MESSAGE value="2.2" />
     <MESSAGE value="2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.3" />
+    <MESSAGE value="2.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.5" />
   </component>
 </project>
