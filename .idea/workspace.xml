@@ -12,7 +12,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a99d7a6d-03e2-4e5b-b98d-e3486feb5af0" name="Default Changelist" comment="2.9" />
+    <list default="true" id="a99d7a6d-03e2-4e5b-b98d-e3486feb5af0" name="Default Changelist" comment="2.10">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/managers/ButtonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/uav_app/front_end/map_activity/managers/ButtonManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -224,13 +227,6 @@
       <option name="presentableId" value="Default" />
       <updated>1604240815987</updated>
       <workItem from="1606379971215" duration="102000" />
-    </task>
-    <task id="LOCAL-00021" summary="1.19">
-      <created>1642572230893</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1642572230893</updated>
     </task>
     <task id="LOCAL-00022" summary="1.19">
       <created>1642572639645</created>
@@ -568,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644421100004</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="2.10">
+      <created>1644503266942</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1644503266942</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -607,6 +610,7 @@
     <MESSAGE value="2.5" />
     <MESSAGE value="2.8" />
     <MESSAGE value="2.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.9" />
+    <MESSAGE value="2.10" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.10" />
   </component>
 </project>
