@@ -11,7 +11,6 @@ public class ButtonManager extends Manager implements MapActivityState.StateChan
     @Override
     public void init(Connector connector) {
         super.init(connector);
-
     }
 
     @Override
