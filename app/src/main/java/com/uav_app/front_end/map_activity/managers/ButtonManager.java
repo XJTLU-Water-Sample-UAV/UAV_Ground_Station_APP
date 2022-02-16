@@ -15,6 +15,5 @@ public class ButtonManager extends Manager implements MapActivityState.StateChan
 
     @Override
     public void onStateChange(MapActivityState mapActivityState) {
-
     }
 }
