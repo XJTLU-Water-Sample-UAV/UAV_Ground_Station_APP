@@ -20,6 +20,7 @@ import com.amap.api.maps.MapView;
 import com.amap.api.maps.MapsInitializer;
 import com.uav_app.back_end.uav_manager.R;
 import com.uav_app.back_end.usb_manager.UsbConnectManager;
+import com.uav_app.front_end.map_activity.managers.ButtonManager;
 import com.uav_app.front_end.map_activity.managers.Connector;
 import com.uav_app.front_end.map_activity.managers.MapManager;
 import com.uav_app.front_end.map_activity.managers.TabManager;
@@ -31,6 +32,8 @@ public class MapActivity extends AppCompatActivity {
     public MapManager mapManager;
     // 面板管理组件
     public TabManager tabManager;
+    // 按钮管理组件
+    public ButtonManager buttonManager;
     // 权限申请返回代码
     private static final int OPEN_SET_REQUEST_CODE = 100;
     // 权限数组（申请定位）
@@ -71,9 +74,11 @@ public class MapActivity extends AppCompatActivity {
         // 初始化管理类
         mapManager = new MapManager(this, mMapView);
         tabManager = new TabManager(this);
+        buttonManager = new ButtonManager(this);
         mMapView.post(() -> {
             tabManager.init(connector, mMapView.getHeight(), finalStatusBarHeight);
             mapManager.init(connector);
+            buttonManager.init(connector, tabManager.getHideLocation());
             MapActivityState.getMapActivityState().applyChange();
         });
         // 初始化中介器
