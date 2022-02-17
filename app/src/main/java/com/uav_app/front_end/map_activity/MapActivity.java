@@ -78,7 +78,7 @@ public class MapActivity extends AppCompatActivity {
         mMapView.post(() -> {
             tabManager.init(connector, mMapView.getHeight(), finalStatusBarHeight);
             mapManager.init(connector);
-            buttonManager.init(connector, tabManager.getHideLocation());
+            buttonManager.init(connector, tabManager.getShowLocation(), tabManager.getHideLocation());
             MapActivityState.getMapActivityState().applyChange();
         });
         // 初始化中介器

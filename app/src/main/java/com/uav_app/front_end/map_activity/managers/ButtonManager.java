@@ -17,10 +17,11 @@ public class ButtonManager extends Manager implements MapActivityState.StateChan
         buttons = activity.findViewById(R.id.button);
     }
 
-    public void init(Connector connector, int bottomMargin) {
+    public void init(Connector connector, int topMargin, int bottomMargin) {
         super.init(connector);
         // 重设控件面板位置和大小
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) buttons.getLayoutParams();
+        params.topMargin = topMargin;
         params.bottomMargin = bottomMargin;
         buttons.requestLayout();
     }

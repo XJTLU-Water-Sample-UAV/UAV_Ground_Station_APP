@@ -212,6 +212,10 @@ public class TabManager extends Manager implements MapActivityState.StateChangeL
         return hideLocation;
     }
 
+    public int getShowLocation() {
+        return showLocation;
+    }
+
     @Override
     public void onStateChange(MapActivityState mapActivityState) {
         // 判断当前连接情况以动态加载面板
