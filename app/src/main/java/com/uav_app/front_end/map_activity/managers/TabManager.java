@@ -68,8 +68,6 @@ public class TabManager extends Manager implements MapActivityState.StateChangeL
         // 设置面板收起和展开位置
         UsbUnconnectedView usbUnconnectedView = (UsbUnconnectedView) viewMap.get(TabState.VIEW_USB_UNCONNECTED);
         assert usbUnconnectedView != null;
-        // TODO: 改回来
-        //this.hideLocation = usbUnconnectedView.getButtonHeight() * 2;
         this.hideLocation = usbUnconnectedView.getButtonHeight() * 3;
         this.packUpLocation = mapHeight - hideLocation;
         this.showLocation = usbUnconnectedView.getButtonMargin() + status_bar_height;
